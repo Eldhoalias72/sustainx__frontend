@@ -3,10 +3,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
-import Navigation from "../../components/navigation";
-import ParticleBackground from "../../components/particle-background";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-
+import { Spinner } from "@/components/ui/spinner"; // Import a spinner component
 
 export default function BookTicket() {
   const [formData, setFormData] = useState({
@@ -18,6 +17,7 @@ export default function BookTicket() {
     referralCode: ''
   });
 
+  const [loading, setLoading] = useState(false); // Add loading state
   const router = useRouter();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +28,7 @@ export default function BookTicket() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true when form is submitted
 
     const formDataToSend = new FormData();
     formDataToSend.append('fullName', formData.fullName);
@@ -52,97 +53,104 @@ export default function BookTicket() {
       }
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setLoading(false); // Set loading to false after the request is complete
     }
   };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-green-950 via-green-900 to-green-950 overflow-hidden">
-      <ParticleBackground />
-
-      <div className="relative z-10">
-        <Navigation />
-
-        <main className="container mx-auto px-4 py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="max-w-2xl mx-auto bg-green-900/30 backdrop-blur-sm rounded-xl p-8 border border-green-500/10"
-          >
-            <h1 className="text-4xl font-bold text-white mb-8">Book Your Ticket</h1>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label className="block text-white mb-2" htmlFor="fullName">Full Name</label>
-                <input
-                  type="text"
-                  id="fullName"
-                  className="w-full px-3 py-2 rounded"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-white mb-2" htmlFor="contactNumber">Contact Number</label>
-                <input
-                  type="text"
-                  id="contactNumber"
-                  className="w-full px-3 py-2 rounded"
-                  value={formData.contactNumber}
-                  onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-white mb-2" htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-3 py-2 rounded"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-white mb-2" htmlFor="preferredSession">Preferred Session</label>
-                <select
-                  id="preferredSession"
-                  className="w-full px-3 py-2 rounded"
-                  value={formData.preferredSession}
-                  onChange={(e) => setFormData({ ...formData, preferredSession: e.target.value })}
-                  required
-                >
-                  <option value="">Select a session</option>
-                  <option value="Talk Session">Talk Session</option>
-                  <option value="Workshop">Workshop</option>
-                </select>
-              </div>
-              <div className="mb-4">
-                <label className="block text-white mb-2" htmlFor="paymentScreenshot">Payment Screenshot</label>
-                <input
-                  type="file"
-                  id="paymentScreenshot"
-                  className="w-full px-3 py-2 rounded"
-                  onChange={handleFileChange}
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-white mb-2" htmlFor="referralCode">Referral Code (Optional)</label>
-                <input
-                  type="text"
-                  id="referralCode"
-                  className="w-full px-3 py-2 rounded"
-                  value={formData.referralCode}
-                  onChange={(e) => setFormData({ ...formData, referralCode: e.target.value })}
-                />
-              </div>
-              <Button type="submit" className="bg-green-500 text-green-900 hover:bg-green-400">Submit</Button>
-            </form>
-          </motion.div>
-        </main>
+      <div className="relative z-10 flex justify-between items-center p-4">
+        <a href="https://www.igbccusat.com/">
+          <Image src="/images/igbc_soe_image.png" alt="IGBC Logo" width={80} height={80} />
+        </a>
+        <Button onClick={() => router.push('/')} className="bg-green-500 text-green-900 hover:bg-green-400">
+          Return Home
+        </Button>
       </div>
+
+      <main className="container mx-auto px-4 py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-2xl mx-auto bg-green-900/30 backdrop-blur-sm rounded-xl p-8 border border-green-500/10"
+        >
+          <h1 className="text-4xl font-bold text-white mb-8">Book Your Ticket</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label className="block text-white mb-2" htmlFor="fullName">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                className="w-full px-3 py-2 rounded bg-gray-200"
+                value={formData.fullName}
+                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-white mb-2" htmlFor="contactNumber">Contact Number</label>
+              <input
+                type="text"
+                id="contactNumber"
+                className="w-full px-3 py-2 rounded bg-gray-200"
+                value={formData.contactNumber}
+                onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-white mb-2" htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                className="w-full px-3 py-2 rounded bg-gray-200"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-white mb-2" htmlFor="preferredSession">Preferred Session</label>
+              <select
+                id="preferredSession"
+                className="w-full px-3 py-2 rounded bg-gray-200"
+                value={formData.preferredSession}
+                onChange={(e) => setFormData({ ...formData, preferredSession: e.target.value })}
+                required
+              >
+                <option value="">Select a session</option>
+                <option value="Talk Session">Talk Session</option>
+                <option value="Workshop">Workshop</option>
+              </select>
+            </div>
+            <div className="mb-4">
+              <label className="block text-white mb-2" htmlFor="paymentScreenshot">Payment Screenshot</label>
+              <input
+                type="file"
+                id="paymentScreenshot"
+                className="w-full px-3 py-2 rounded bg-gray-200"
+                onChange={handleFileChange}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-white mb-2" htmlFor="referralCode">Referral Code (Optional)</label>
+              <input
+                type="text"
+                id="referralCode"
+                className="w-full px-3 py-2 rounded bg-gray-200"
+                value={formData.referralCode}
+                onChange={(e) => setFormData({ ...formData, referralCode: e.target.value })}
+              />
+            </div>
+            <Button type="submit" className="bg-green-500 text-green-900 hover:bg-green-400" disabled={loading}>
+              {loading ? <Spinner /> : 'Submit'}
+            </Button>
+          </form>
+        </motion.div>
+      </main>
     </div>
   );
 }
