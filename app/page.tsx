@@ -1,14 +1,14 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
+import { gsap } from "gsap"
 import Navigation from "../components/navigation"
 import AboutSection from "../components/about-section"
 import EventSection from "../components/event-section"
 import SpeakersSection from "../components/speakers-section"
 import ContactSection from "../components/contact-section"
 import Image from "next/image"
-import gsap from "gsap"
 
 interface Particle {
   x: number
@@ -22,6 +22,7 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const walleRef = useRef<HTMLDivElement>(null)
+  const [ripples, setRipples] = useState<{ x: number; y: number; id: number }[]>([])
 
   // Particle animation logic
   useEffect(() => {
@@ -97,8 +98,8 @@ export default function Home() {
   useEffect(() => {
     if (walleRef.current) {
       gsap.to(walleRef.current, {
-        x: "random(-20, 20)",
-        y: "random(-20, 20)",
+        x: "random(-30, 30)",
+        y: "random(-30, 30)",
         duration: 3,
         repeat: -1,
         yoyo: true,
@@ -107,14 +108,27 @@ export default function Home() {
     }
   }, [])
 
+  // Handle mouse hover to create ripples
+  const handleInteraction = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => {
+    const x = "clientX" in e ? e.clientX : e.touches[0].clientX
+    const y = "clientY" in e ? e.clientY : e.touches[0].clientY
+    const id = Date.now()
+
+    setRipples((prevRipples) => [...prevRipples, { x, y, id }])
+
+    // Remove the ripple after animation
+    setTimeout(() => {
+      setRipples((prevRipples) => prevRipples.filter((ripple) => ripple.id !== id))
+    }, 600)
+  }
+
   // Animated Circles Background Component
   const AnimatedCircles = () => {
     return (
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         {[...Array(10)].map((_, i) => {
-          // Randomize animation duration and delay for each circle
-          const duration = Math.random() * 6 + 4; // Duration between 4 and 10 seconds
-          const delay = Math.random() * 4; // Delay between 0 and 4 seconds
+          const duration = Math.random() * 6 + 4
+          const delay = Math.random() * 4
 
           return (
             <motion.div
@@ -124,16 +138,16 @@ export default function Home() {
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
               }}
-              initial={{ opacity: 0, scale: 0.8 }} // Start with slight scale and no opacity
+              initial={{ opacity: 0, scale: 0.8 }}
               animate={{
-                scale: [0.8, 1.2, 0.8], // Gentle scaling animation
-                opacity: [0, 0.5, 0], // Fade in and out
+                scale: [0.8, 1.2, 0.8],
+                opacity: [0, 0.5, 0],
               }}
               transition={{
-                duration: duration, // Random duration for each circle
-                delay: delay, // Random delay for each circle
-                repeat: Infinity, // Loop the animation
-                ease: "easeInOut", // Smooth easing
+                duration,
+                delay,
+                repeat: Infinity,
+                ease: "easeInOut",
               }}
             />
           )
@@ -143,7 +157,12 @@ export default function Home() {
   }
 
   return (
-    <div ref={containerRef} className="relative min-h-screen bg-gradient-to-b from-green-950 via-green-900 to-green-950 overflow-hidden">
+    <div
+      ref={containerRef}
+      onMouseMove={handleInteraction}
+      onTouchMove={handleInteraction}
+      className="relative min-h-screen bg-gradient-to-b from-green-950 via-green-900 to-green-950 overflow-hidden"
+    >
       {/* Particle Background */}
       <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none" style={{ opacity: 0.2 }} />
 
@@ -155,58 +174,49 @@ export default function Home() {
             linear-gradient(to right, rgba(34, 197, 94, 0.1) 1px, transparent 1px),
             linear-gradient(to bottom, rgba(34, 197, 94, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: "40px 40px", // Size of each square
+          backgroundSize: "40px 40px",
         }}
       ></div>
 
       {/* Animated Circles */}
       <AnimatedCircles />
 
+      {/* Ripple Effect */}
+      {ripples.map((ripple) => (
+        <motion.div
+          key={ripple.id}
+          className="absolute w-16 h-16 bg-green-500 rounded-full pointer-events-none"
+          style={{ top: ripple.y, left: ripple.x, transform: "translate(-50%, -50%)" }}
+          initial={{ opacity: 0.2, scale: 0.1 }}
+          animate={{ opacity: 0, scale: 2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        />
+      ))}
+
       {/* Main Content */}
       <div className="relative z-10">
         <Navigation />
         <main className="container mx-auto px-4 py-20">
-          {/* Hero Section */}
           <section id="hero" className="min-h-screen flex flex-col items-center justify-center text-center section">
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, type: "spring", stiffness: 100 }}
               className="relative"
-              style={{ marginTop: '-180px' }}
+              style={{ marginTop: "-180px" }}
             >
-              {/* WALL-E Image */}
-              <div
-                ref={walleRef}
-                className="absolute w-96 h-96" // Adjust size here (e.g., w-48 h-48 for smaller size)
-                style={{
-                  top: "50%", // Adjust vertical position
-                  left: "50%", // Adjust horizontal position
-                  transform: "translate(-50%, -50%)", // Center the image
-                }}
-              >
-                <Image
-                  src="/images/walle.png"
-                  alt="Walle"
-                  layout="fill"
-                  objectFit="contain"
-                />
+              <div ref={walleRef} className="absolute w-96 h-96" style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+                <Image src="/images/walle.png" alt="Walle" layout="fill" objectFit="contain" />
               </div>
             </motion.div>
           </section>
 
-          {/* About Section */}
           <AboutSection/>
-
-          {/* Event Section */}
-          <EventSection />
-
-          {/* Speakers Section */}
+          <EventSection  />
           <SpeakersSection />
-
-          {/* Contact Section */}
-          <ContactSection />
+          
         </main>
+        <ContactSection/>
       </div>
     </div>
   )

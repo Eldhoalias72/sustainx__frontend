@@ -48,12 +48,12 @@ export default function Navigation() {
           </Link>
 
           {/* SustainX Logo in the Center */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
+          <div className="absolute left-1/2 transform -translate-x-1/2 -mt-4">
             <Image
               src="/images/sustainx_image_new.png"
               alt="SustainX Logo"
-              width={150}
-              height={150}
+              width={180}
+              height={180}
               className="rounded-full"
             />
           </div>

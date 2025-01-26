@@ -1,10 +1,10 @@
 "use client"
-
 import { motion, useScroll, useTransform } from "framer-motion"
-import Image from "next/image"
+//import Image from "next/image"
 import { Leaf, Users, Calendar, Globe } from "lucide-react"
 
 export default function AboutSection() {
+ 
   const features = [
     {
       icon: <Leaf className="w-6 h-6" />,
@@ -27,7 +27,6 @@ export default function AboutSection() {
       description: "Contributing to worldwide sustainable development goals",
     },
   ]
-
   const { scrollYProgress } = useScroll()
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
 
@@ -41,19 +40,27 @@ export default function AboutSection() {
         className="space-y-16"
       >
         <div className="text-center space-y-4">
+    
           <h2 className="text-4xl md:text-5xl font-bold text-white">About SustainX</h2>
           <p className="text-green-300 text-lg md:text-xl max-w-3xl mx-auto">
-            SustainX is IGBC CUSAT&apos; premier event dedicated to advancing sustainable development and green building
-            practices through innovation and collaboration.
+          SustainX: Building Tomorrow is the flagship annual conference organized by the IGBC Student Chapter of CUSAT, a vibrant part of the Confederation of Indian Industry (CII). Through interactive sessions, workshops, and engaging activities, SustainX aims to empower participants to integrate eco-friendly practices into their personal and professional lives, contributing to a sustainable future for all.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <motion.div style={{ y }} className="relative h-[400px] rounded-xl overflow-hidden">
-            <Image src="/placeholder.svg" alt="SustainX Event" fill className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-green-950 via-transparent to-transparent" />
-          </motion.div>
-
+        <motion.div style={{ y }} className="relative h-[400px] rounded-xl overflow-hidden">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.741178315091!2d76.3233438!3d10.0438128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d223eeb1de1%3A0xce06a9f0d256857a!2sSeminar%20Complex%2C%20CUSAT!5e0!3m2!1sen!2sin!4v1698765432100!5m2!1sen!2sin"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    className="object-cover"
+  ></iframe>
+  <div className="absolute inset-0 bg-gradient-to-t from-green-950 via-transparent to-transparent" />
+</motion.div>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -81,4 +88,3 @@ export default function AboutSection() {
     </section>
   )
 }
-
