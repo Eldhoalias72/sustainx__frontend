@@ -182,16 +182,16 @@ export default function Home() {
           </section>
 
           {/* About Section */}
-          <AboutSection className="section" />
+          <AboutSection/>
 
           {/* Event Section */}
-          <EventSection className="section" />
+          <EventSection/>
 
           {/* Speakers Section */}
-          <SpeakersSection className="section" />
+          <SpeakersSection />
 
           {/* Contact Section */}
-          <ContactSection className="section" />
+          <ContactSection />
         </main>
       </div>
     </div>
