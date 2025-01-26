@@ -1,13 +1,14 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import Navigation from "../components/navigation"
 import AboutSection from "../components/about-section"
 import EventSection from "../components/event-section"
 import SpeakersSection from "../components/speakers-section"
 import ContactSection from "../components/contact-section"
 import Image from "next/image"
+import gsap from "gsap"
 
 interface Particle {
   x: number
@@ -20,15 +21,7 @@ interface Particle {
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  // Scroll-based animation logic
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  })
-
-  // Transform scroll progress into background movement
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
+  const walleRef = useRef<HTMLDivElement>(null)
 
   // Particle animation logic
   useEffect(() => {
@@ -100,6 +93,20 @@ export default function Home() {
     }
   }, [])
 
+  // Walle animation logic
+  useEffect(() => {
+    if (walleRef.current) {
+      gsap.to(walleRef.current, {
+        x: "random(-20, 20)",
+        y: "random(-20, 20)",
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      })
+    }
+  }, [])
+
   // Animated Circles Background Component
   const AnimatedCircles = () => {
     return (
@@ -148,18 +155,12 @@ export default function Home() {
             linear-gradient(to right, rgba(34, 197, 94, 0.1) 1px, transparent 1px),
             linear-gradient(to bottom, rgba(34, 197, 94, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: "50px 50px", // Size of each square
+          backgroundSize: "40px 40px", // Size of each square
         }}
       ></div>
 
       {/* Animated Circles */}
       <AnimatedCircles />
-
-      {/* Scroll-Based Background Animation */}
-      <motion.div
-        className="fixed inset-0 pointer-events-none bg-green-900/20"
-        style={{ y: backgroundY }}
-      />
 
       {/* Main Content */}
       <div className="relative z-10">
@@ -174,32 +175,37 @@ export default function Home() {
               className="relative"
               style={{ marginTop: '-180px' }}
             >
-              <Image
-                src="/images/sustainx_image_new.png"
-                alt="SustainX Logo"
-                width={500}
-                height={500}
-                className="mx-auto mb-8 w-64 md:w-96 lg:w-[500px]"
-              />
-              <div className="mt-1 space-y-4" style={{ marginTop: '-140px' }}>
-                <p className="text-green-300 text-xl md:text-2xl">
-                  BUILDING TOMORROW
-                </p>
+              {/* WALL-E Image */}
+              <div
+                ref={walleRef}
+                className="absolute w-96 h-96" // Adjust size here (e.g., w-48 h-48 for smaller size)
+                style={{
+                  top: "50%", // Adjust vertical position
+                  left: "50%", // Adjust horizontal position
+                  transform: "translate(-50%, -50%)", // Center the image
+                }}
+              >
+                <Image
+                  src="/images/walle.png"
+                  alt="Walle"
+                  layout="fill"
+                  objectFit="contain"
+                />
               </div>
             </motion.div>
           </section>
 
           {/* About Section */}
-          <AboutSection />
+          <AboutSection/>
 
           {/* Event Section */}
           <EventSection />
 
           {/* Speakers Section */}
-          <SpeakersSection  />
+          <SpeakersSection />
 
           {/* Contact Section */}
-          <ContactSection  />
+          <ContactSection />
         </main>
       </div>
     </div>

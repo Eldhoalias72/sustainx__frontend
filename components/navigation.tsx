@@ -21,7 +21,7 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className={`fixed w-full z-50 transition-colors duration-300 ${
+      className={`fixed w-full z-50 transition-colors duration:300 ${
         scrolled ? "bg-green-900/80 backdrop-blur-md" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
@@ -29,24 +29,34 @@ export default function Navigation() {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center py-4">
+        <div className="flex items-center justify-between py-4">
           <Link href="https://www.igbccusat.com/">
             <motion.div
               className="text-green-400 text-xl font-bold flex items-center"
               whileHover={{ scale: 1 }}
               whileTap={{ scale: 0.95 }}
             >
-              {/* Updated Image Component */}
+              {/* IGBC Logo */}
               <Image
                 src="/images/igbc_soe_image.png" // Ensure the path is correct
-                alt="SustainX Logo"
+                alt="IGBC Logo"
                 width={100} // Increased size for better visibility
                 height={100}
                 className="mr-2 rounded-full" // Added rounded styling for aesthetics
               />
-              
             </motion.div>
           </Link>
+
+          {/* SustainX Logo in the Center */}
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <Image
+              src="/images/sustainx_image_new.png"
+              alt="SustainX Logo"
+              width={150}
+              height={150}
+              className="rounded-full"
+            />
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 items-center ml-auto">
