@@ -126,9 +126,9 @@ export default function Home() {
   const AnimatedCircles = () => {
     return (
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {[...Array(10)].map((_, i) => {
+        {[...Array(20)].map((_, i) => {
           const duration = Math.random() * 6 + 4
-          const delay = Math.random() * 4
+          const delay = Math.random() * 3
 
           return (
             <motion.div
@@ -198,16 +198,27 @@ export default function Home() {
         <Navigation />
         <main className="container mx-auto px-4 py-20">
           <section id="hero" className="min-h-screen flex flex-col items-center justify-center text-center section">
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, type: "spring", stiffness: 100 }}
-              className="relative"
-              style={{ marginTop: "-180px" }}
-            >
-              <div ref={walleRef} className="absolute w-96 h-96" style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
-                <Image src="/images/walle.png" alt="Walle" layout="fill" objectFit="contain" />
-              </div>
+          <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, type: "spring", stiffness: 100 }}
+                className="relative"
+                style={{ marginTop: "-180px" }}
+                >
+                {/* Wall-E Image Container */}
+                <div
+                ref={walleRef}
+                className="absolute w-[500px] h-[500px]" // Increased size
+                style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+                >
+                <Image
+                  src="/images/walle.png"
+                  alt="Walle"
+                  layout="fill"
+                  objectFit="contain"
+                  className="object-contain" // Ensure the image scales properly
+                />
+                </div>
             </motion.div>
           </section>
 

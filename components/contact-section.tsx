@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import React from "react"
-import { Phone, Mail, Instagram, Linkedin } from "lucide-react"
-import { motion } from "framer-motion"
+import React from "react";
+import { Phone, Mail, Instagram, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   return (
-    <footer className="bg-gradient-to-br from-green-900 to-green-950 text-white py-12 relative overflow-hidden">
+    <footer id="contact" className="bg-gradient-to-br from-green-900 to-green-950 text-white py-12 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8">
           <motion.div
@@ -84,7 +84,7 @@ const ContactSection = () => {
         ></div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default ContactSection
+export default ContactSection;
