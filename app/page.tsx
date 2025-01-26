@@ -1,8 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { gsap } from "gsap"
 import Navigation from "../components/navigation"
 import AboutSection from "../components/about-section"
 import EventSection from "../components/event-section"
@@ -21,11 +20,14 @@ interface Particle {
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  // Scroll-based animation logic
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   })
 
+  // Transform scroll progress into background movement
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
 
   // Particle animation logic
@@ -153,6 +155,12 @@ export default function Home() {
       {/* Animated Circles */}
       <AnimatedCircles />
 
+      {/* Scroll-Based Background Animation */}
+      <motion.div
+        className="fixed inset-0 pointer-events-none bg-green-900/20"
+        style={{ y: backgroundY }}
+      />
+
       {/* Main Content */}
       <div className="relative z-10">
         <Navigation />
@@ -182,16 +190,16 @@ export default function Home() {
           </section>
 
           {/* About Section */}
-          <AboutSection/>
+          <AboutSection />
 
           {/* Event Section */}
-          <EventSection/>
+          <EventSection />
 
           {/* Speakers Section */}
-          <SpeakersSection />
+          <SpeakersSection  />
 
           {/* Contact Section */}
-          <ContactSection />
+          <ContactSection  />
         </main>
       </div>
     </div>
