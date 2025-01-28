@@ -1,23 +1,26 @@
-"use client"
+"use client";
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner"; // Import a spinner component
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
 
 export default function BookTicket() {
   const [formData, setFormData] = useState({
     fullName: '',
     contactNumber: '',
     email: '',
+    reEnterEmail: '', // New field
     preferredSession: '',
     paymentScreenshot: null as File | null,
-    referralCode: ''
+    referralCode: '',
+    transactionId: '', // New field
   });
 
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false);
+  const [emailError, setEmailError] = useState(''); // State for email validation error
   const router = useRouter();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,14 +31,25 @@ export default function BookTicket() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true when form is submitted
+
+    // Validate email match
+    if (formData.email !== formData.reEnterEmail) {
+      setEmailError('Emails do not match');
+      return;
+    } else {
+      setEmailError('');
+    }
+
+    setLoading(true);
 
     const formDataToSend = new FormData();
     formDataToSend.append('fullName', formData.fullName);
     formDataToSend.append('contactNumber', formData.contactNumber);
     formDataToSend.append('email', formData.email);
+    formDataToSend.append('reEnterEmail', formData.reEnterEmail); // Add re-entered email
     formDataToSend.append('preferredSession', formData.preferredSession);
     formDataToSend.append('referralCode', formData.referralCode);
+    formDataToSend.append('transactionId', formData.transactionId); // Add transaction ID
     if (formData.paymentScreenshot) {
       formDataToSend.append('paymentScreenshot', formData.paymentScreenshot);
     }
@@ -47,14 +61,14 @@ export default function BookTicket() {
       });
       if (response.ok) {
         console.log('Booking saved successfully');
-        router.push("/book-ticket/confirmation");
+        router.push('/book-ticket/confirmation');
       } else {
         console.error('Failed to save booking');
       }
     } catch (error) {
       console.error('Error:', error);
     } finally {
-      setLoading(false); // Set loading to false after the request is complete
+      setLoading(false);
     }
   };
 
@@ -112,6 +126,18 @@ export default function BookTicket() {
               />
             </div>
             <div className="mb-4">
+              <label className="block text-white mb-2" htmlFor="reEnterEmail">Re-enter Email</label>
+              <input
+                type="email"
+                id="reEnterEmail"
+                className="w-full px-3 py-2 rounded bg-gray-200"
+                value={formData.reEnterEmail}
+                onChange={(e) => setFormData({ ...formData, reEnterEmail: e.target.value })}
+                required
+              />
+              {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>}
+            </div>
+            <div className="mb-4">
               <label className="block text-white mb-2" htmlFor="preferredSession">Preferred Session</label>
               <select
                 id="preferredSession"
@@ -132,6 +158,17 @@ export default function BookTicket() {
                 id="paymentScreenshot"
                 className="w-full px-3 py-2 rounded bg-gray-200"
                 onChange={handleFileChange}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-white mb-2" htmlFor="transactionId">Transaction ID</label>
+              <input
+                type="text"
+                id="transactionId"
+                className="w-full px-3 py-2 rounded bg-gray-200"
+                value={formData.transactionId}
+                onChange={(e) => setFormData({ ...formData, transactionId: e.target.value })}
                 required
               />
             </div>

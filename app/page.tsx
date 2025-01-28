@@ -198,19 +198,19 @@ export default function Home() {
         <Navigation />
         <main className="container mx-auto px-4 py-20">
           <section id="hero" className="min-h-screen flex flex-col items-center justify-center text-center section">
-          <motion.div
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, type: "spring", stiffness: 100 }}
-                className="relative"
-                style={{ marginTop: "-180px" }}
-                >
-                {/* Wall-E Image Container */}
-                <div
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, type: "spring", stiffness: 100 }}
+              className="relative"
+              style={{ marginTop: "-180px" }}
+            >
+              {/* Wall-E Image Container */}
+              <div
                 ref={walleRef}
                 className="absolute w-[500px] h-[500px]" // Increased size
                 style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                >
+              >
                 <Image
                   src="/images/walle.png"
                   alt="Walle"
@@ -218,16 +218,37 @@ export default function Home() {
                   objectFit="contain"
                   className="object-contain" // Ensure the image scales properly
                 />
-                </div>
+              </div>
             </motion.div>
           </section>
 
-          <AboutSection/>
-          <EventSection  />
+          <AboutSection />
+          <EventSection />
           <SpeakersSection />
-          
+
+          {/* Campus Ambassador Section */}
+          <section id="campus-ambassador" className="py-20 text-center">
+            <h2 className="text-4xl font-bold text-green-500 mb-8">
+              Campus Ambassador
+            </h2>
+            <p className="text-lg text-green-200 mb-4">
+              Be the Change You Want to See—Join SustainX as a Campus Ambassador!
+              <br />
+              Spread the word, inspire change, and gain exclusive access to events and opportunities.
+              <br />
+              Make your campus a hub for innovation—apply now!
+            </p>
+            <a
+              href="https://sustainx.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
+            >
+              Apply Now
+            </a>
+          </section>
         </main>
-        <ContactSection/>
+        <ContactSection />
       </div>
     </div>
   )
