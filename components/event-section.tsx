@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useAnimation } from "framer-motion"
-import { Clock, Calendar, MapPin } from "lucide-react"
+import { Clock } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 interface Event {
@@ -236,26 +236,26 @@ export default function EventSection() {
         </div>
 
         <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <p className="text-green-300 text-lg mb-6">
-            Don&apos;t miss out on this exciting event! Book your ticket now and be part of the sustainable future.
-          </p>
-          <div className="flex justify-center space-x-6">
-            <motion.div className="flex items-center text-green-400" whileHover={{ scale: 1.1 }}>
-              <Calendar className="w-5 h-5 mr-2" />
-              <span>September 15, 2025</span>
-            </motion.div>
-            <motion.div className="flex items-center text-green-400" whileHover={{ scale: 1.1 }}>
-              <MapPin className="w-5 h-5 mr-2" />
-              <span>CUSAT Campus, Kochi</span>
-            </motion.div>
-          </div>
-        </motion.div>
+  className="text-center"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+>
+  <p className="text-green-300 text-lg mb-6">
+    Don&apos;t miss out on this exciting event! Book your ticket now and be part of the sustainable future.
+  </p>
+  <div className="flex justify-center">
+    <motion.a
+      href="/book-ticket"
+      className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-300"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
+      Book Ticket
+    </motion.a>
+  </div>
+      </motion.div>
       </motion.div>
 
       <style jsx>{`

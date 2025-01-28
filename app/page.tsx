@@ -9,6 +9,7 @@ import EventSection from "../components/event-section"
 import SpeakersSection from "../components/speakers-section"
 import ContactSection from "../components/contact-section"
 import Image from "next/image"
+import { FaArrowDown } from "react-icons/fa" // Import the arrow icon
 
 interface Particle {
   x: number
@@ -22,7 +23,10 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const walleRef = useRef<HTMLDivElement>(null)
+  const aboutSectionRef = useRef<HTMLDivElement>(null)
   const [ripples, setRipples] = useState<{ x: number; y: number; id: number }[]>([])
+  const [isArrowVisible, setIsArrowVisible] = useState(true) // State to control arrow visibility
+  const [hasScrolledPastAbout, setHasScrolledPastAbout] = useState(false) // New state variable
 
   // Particle animation logic
   useEffect(() => {
@@ -122,6 +126,43 @@ export default function Home() {
     }, 600)
   }
 
+  // Scroll to About Section
+  const scrollToAboutSection = () => {
+    if (aboutSectionRef.current) {
+      aboutSectionRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  // Intersection Observer to detect when About section is in view
+  useEffect(() => {
+    const aboutSection = aboutSectionRef.current; // Store the ref value in a variable
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsArrowVisible(false); // Hide arrow when About section is in view
+            setHasScrolledPastAbout(true); // Set the state to true once the About section is in view
+          } else if (!hasScrolledPastAbout) {
+            setIsArrowVisible(true); // Show arrow only if the About section has not been scrolled past yet
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of the About section is visible
+    );
+  
+    if (aboutSection) {
+      observer.observe(aboutSection);
+    }
+  
+    return () => {
+      if (aboutSection) {
+        observer.unobserve(aboutSection); // Use the stored variable for cleanup
+      }
+    };
+  }, [hasScrolledPastAbout]); // Add `hasScrolledPastAbout` as a dependency
+   // Add hasScrolledPastAbout as a dependency
+
   // Animated Circles Background Component
   const AnimatedCircles = () => {
     return (
@@ -193,6 +234,19 @@ export default function Home() {
         />
       ))}
 
+      {/* Scroll Down Arrow */}
+      {isArrowVisible && !hasScrolledPastAbout && (
+        <motion.div
+          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 1 }}
+          onClick={scrollToAboutSection}
+        >
+          <FaArrowDown className="text-green-500 text-4xl animate-bounce" />
+        </motion.div>
+      )}
+
       {/* Main Content */}
       <div className="relative z-10">
         <Navigation />
@@ -222,7 +276,11 @@ export default function Home() {
             </motion.div>
           </section>
 
-          <AboutSection />
+          {/* About Section */}
+          <div ref={aboutSectionRef}>
+            <AboutSection />
+          </div>
+
           <EventSection />
           <SpeakersSection />
 
