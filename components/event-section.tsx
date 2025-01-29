@@ -257,7 +257,7 @@ export default function EventSection() {
     </motion.a>
   
   </div>
-  <div className="h-16"></div>
+  <div className="h-8"></div>
 
 
   <div className="overflow-hidden mt-8 relative">

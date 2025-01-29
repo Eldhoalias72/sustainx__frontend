@@ -44,7 +44,7 @@ export default function AboutSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-white">About SustainX</h2>
           <p className="text-green-300 text-lg md:text-xl max-w-3xl mx-auto">
             SustainX: Building Tomorrow is the flagship annual conference organized by the IGBC Student Chapter of CUSAT, a vibrant part of the Confederation of Indian Industry (CII). Through interactive sessions, workshops, and engaging activities, SustainX aims to empower participants to integrate eco-friendly practices into their personal and professional lives, contributing to a sustainable future for all.
-            <br></br><br></br><br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br><br></br><br></br>
           </p>
         </div>
 

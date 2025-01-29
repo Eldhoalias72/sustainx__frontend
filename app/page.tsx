@@ -135,32 +135,43 @@ export default function Home() {
 
   // Intersection Observer to detect when About section is in view
   useEffect(() => {
-    const aboutSection = aboutSectionRef.current; // Store the ref value in a variable
+    const aboutSection = aboutSectionRef.current;
+  
+    if (!aboutSection) return;
   
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsArrowVisible(false); // Hide arrow when About section is in view
-            setHasScrolledPastAbout(true); // Set the state to true once the About section is in view
-          } else if (!hasScrolledPastAbout) {
-            setIsArrowVisible(true); // Show arrow only if the About section has not been scrolled past yet
-          }
+          setTimeout(() => {
+            if (entry.isIntersecting) {
+              setIsArrowVisible(false); // Hide arrow when About section is in view
+              setHasScrolledPastAbout(true);
+            } else if (!hasScrolledPastAbout) {
+              setIsArrowVisible(true); // Show arrow only if the About section has not been scrolled past
+            }
+          }, 100); // Small delay to account for mobile behavior
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of the About section is visible
+      { threshold: 0.3 } // Slightly lower threshold for better detection
     );
   
-    if (aboutSection) {
-      observer.observe(aboutSection);
-    }
+    observer.observe(aboutSection);
   
-    return () => {
-      if (aboutSection) {
-        observer.unobserve(aboutSection); // Use the stored variable for cleanup
+    const handleScroll = () => {
+      if (aboutSection.getBoundingClientRect().top < window.innerHeight * 0.5) {
+        setIsArrowVisible(false);
+        setHasScrolledPastAbout(true);
       }
     };
-  }, [hasScrolledPastAbout]); // Add `hasScrolledPastAbout` as a dependency
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    return () => {
+      observer.unobserve(aboutSection);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [hasScrolledPastAbout]);
+  // Add `hasScrolledPastAbout` as a dependency
    // Add hasScrolledPastAbout as a dependency
 
   // Animated Circles Background Component
