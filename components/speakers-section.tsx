@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 
 interface Speaker {
   name: string
@@ -17,37 +17,42 @@ const speakers: Speaker[] = [
     reputation: "Climate Activist",
     image: "/images/licy_igbc.jpg",
     details:
-      "Licypriya is a Thirteen-Years-Old Indian Climate Activists. She has been championing her cause since six years old to protect, preserve and nurture our environment by fighting the climate change. She is one of the youngest climate activists globally and addressed the world leaders in the United Nations Climate Conference 2019 (COP25) in Madrid, Spain calling the world leaders to take immediate climate actions to save our planet and their future. She attended the 77th Session of the United Nations General Assembly 2022.",
+      "Licypriya is a Thirteen-Years-Old Indian Climate Activists. She has been championing her cause since six years old to protect, preserve and nurture our environment by fighting the climate change. She is one of the youngest climate activists globally and addressed the world leaders in the United Nations Climate Conference 2019 (COP25) in Madrid, Spain calling the world leaders to take immediate climate actions to save our planet and their future. She attended the 77th Session of the United Nations General Assembly 2022.",
   },
   {
     name: "",
     reputation: "",
     image: "/images/coming.png",
-    details:
-      "Will be updated soon",
+    details: "Will be updated soon",
   },
   {
     name: "",
     reputation: "",
     image: "/images/coming.png",
-    details:
-      "Will be updated soon",
+    details: "Will be updated soon",
   },
   {
     name: "",
     reputation: "",
     image: "/images/coming.png",
-    details:
-      "Will be updated soon",
+    details: "Will be updated soon",
   },
 ]
 
 const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
   const [isFlipped, setIsFlipped] = useState(false)
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFlipped((prev) => !prev)
+    }, 4000) // Auto-flip every 4 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <motion.div
-      className="w-80 h-96 cursor-pointer perspective mx-4 flex-shrink-0" // Increased size
+      className="w-80 h-96 cursor-pointer perspective mx-4 flex-shrink-0"
       onHoverStart={() => setIsFlipped(true)}
       onHoverEnd={() => setIsFlipped(false)}
     >
@@ -98,7 +103,7 @@ export default function SpeakersSection() {
         <div className="relative">
           <div
             ref={scrollContainerRef}
-            className="flex overflow-x-auto custom-scrollbar snap-x snap-mandatory no-scrollbar" // Removed vertical scrollbar
+            className="flex overflow-x-auto custom-scrollbar snap-x snap-mandatory no-scrollbar"
             style={{ scrollbarWidth: "thin", scrollbarColor: "#22c55e transparent" }}
           >
             {speakers.map((speaker, index) => (

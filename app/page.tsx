@@ -296,26 +296,43 @@ export default function Home() {
           <SpeakersSection />
 
           {/* Campus Ambassador Section */}
+
           <section id="campus-ambassador" className="py-20 text-center">
-            <h2 className="text-4xl font-bold text-green-500 mb-8">
-              Campus Ambassador
-            </h2>
-            <p className="text-lg text-green-200 mb-4">
-              Be the Change You Want to See—Join SustainX as a Campus Ambassador!
-              <br />
-              Spread the word, inspire change, and gain exclusive access to events and opportunities.
-              <br />
-              Make your campus a hub for innovation—apply now!
-            </p>
-            <a
-              href="https://sustainx.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
-            >
-              Apply Now
-            </a>
-          </section>
+  <div className="space-y-4"> {/* Added a wrapping div for spacing */}
+    <motion.h2
+      className="text-4xl font-bold text-green-500 mb-8"
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }} // Added transition properties
+    >
+      Campus Ambassador
+    </motion.h2>
+    <motion.p
+      className="text-lg text-green-200 mb-4"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.4 }} // Added transition properties
+    >
+      Be the Change You Want to See—Join SustainX as a Campus Ambassador!
+      <br />
+      Spread the word, inspire change, and gain exclusive access to events and opportunities.
+      <br />
+      Make your campus a hub for innovation—apply now!
+    </motion.p>
+
+    <motion.a
+      href="https://sustainx.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.6 }}  // Added transition properties with a longer delay
+    >
+      Apply Now
+    </motion.a>
+  </div>
+</section>
         </main>
         <ContactSection />
       </div>

@@ -41,10 +41,24 @@ export default function AboutSection() {
       >
         {/* About SustainX Heading and Description */}
         <div className="text-center space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">About SustainX</h2>
+        <motion.h2
+            className="text-4xl md:text-5xl font-bold text-white"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            About SustainX
+          </motion.h2>
+          <motion.p
+            className="text-green-300 text-lg md:text-xl max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+             SustainX: Building Tomorrow is the flagship annual conference organized by the IGBC Student Chapter of CUSAT, a vibrant part of the Confederation of Indian Industry (CII). Through interactive sessions, workshops, and engaging activities, SustainX aims to empower participants to integrate eco-friendly practices into their personal and professional lives, contributing to a sustainable future for all.
+          </motion.p>
           <p className="text-green-300 text-lg md:text-xl max-w-3xl mx-auto">
-            SustainX: Building Tomorrow is the flagship annual conference organized by the IGBC Student Chapter of CUSAT, a vibrant part of the Confederation of Indian Industry (CII). Through interactive sessions, workshops, and engaging activities, SustainX aims to empower participants to integrate eco-friendly practices into their personal and professional lives, contributing to a sustainable future for all.
-            <br></br><br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br><br></br>
           </p>
         </div>
 
