@@ -235,7 +235,8 @@ export default function EventSection() {
           </div>
         </div>
 
-        <motion.div
+        
+  <motion.div
   className="text-center"
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
@@ -254,7 +255,48 @@ export default function EventSection() {
     >
       Book Ticket
     </motion.a>
+  
   </div>
+  <div className="h-16"></div>
+
+
+  <div className="overflow-hidden mt-8 relative">
+    <div className="flex">
+      <motion.div
+        className="flex space-x-4"
+        animate={{ x: [0, "-50%"] }}
+        transition={{
+          repeat: Infinity,
+          duration: 6,
+          ease: "linear",
+        }}
+      >
+        {/* First set of items */}
+        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
+          Earn 50 KTU Points 🎉
+        </div>
+        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
+          Earn 50 KTU Points 🎉
+        </div>
+        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
+          Earn 50 KTU Points 🎉
+        </div>
+        {/* Duplicate set to create seamless loop */}
+        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
+          Earn 50 KTU Points 🎉
+        </div>
+        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
+          Earn 50 KTU Points 🎉
+        </div>
+        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
+          Earn 50 KTU Points 🎉
+        </div>
+      </motion.div>
+    </div>
+  </div>
+
+
+
       </motion.div>
       </motion.div>
 
