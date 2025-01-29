@@ -11,6 +11,7 @@ import ContactSection from "../components/contact-section"
 import Image from "next/image"
 import { FaArrowDown } from "react-icons/fa" // Import the arrow icon
 
+
 interface Particle {
   x: number
   y: number
@@ -291,7 +292,7 @@ export default function Home() {
           <div ref={aboutSectionRef}>
             <AboutSection />
           </div>
-
+          <br/>
           <EventSection />
           <SpeakersSection />
 

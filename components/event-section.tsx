@@ -41,6 +41,7 @@ const EventBlock = ({ time, events }: EventBlockProps) => {
   }, [controls])
 
   return (
+    
     <motion.div
       className="bg-green-900/30 backdrop-blur-sm rounded-xl p-6 border border-green-500/10 hover:border-green-500/30 transition-all duration-300 min-w-[300px] h-full flex flex-col"
       initial={{ opacity: 0, y: 20 }}
@@ -207,7 +208,7 @@ export default function EventSection() {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          ><br/>
             Event Schedule
           </motion.h2>
           <motion.p

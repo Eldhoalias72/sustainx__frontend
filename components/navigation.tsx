@@ -7,6 +7,10 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 
+
+
+
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -64,15 +68,25 @@ export default function Navigation() {
           </Link>
 
           {/* SustainX Logo in the Center */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 -mt-4">
-            <Image
-              src="/images/sustainx_image_new.png"
-              alt="SustainX Logo"
-              width={250}
-              height={250}
-              className="rounded-full"
-            />
-          </div>
+          {/* SustainX Logo in the Center */}
+{/* SustainX Logo with animation */}
+        {/* SustainX Logo in the Center */}
+<div className="absolute left-1/2 transform -translate-x-1/2 -mt-4">
+  <Image
+    src="/images/sustainx_image_new.png"
+    alt="SustainX Logo"
+    width={250}
+    height={250}
+    className="rounded-full"
+  />
+</div>
+
+
+
+
+
+
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 items-center ml-auto">

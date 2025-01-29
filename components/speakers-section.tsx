@@ -51,6 +51,7 @@ const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
   }, [])
 
   return (
+  
     <motion.div
       className="w-80 h-96 cursor-pointer perspective mx-4 flex-shrink-0"
       onHoverStart={() => setIsFlipped(true)}
@@ -99,7 +100,7 @@ export default function SpeakersSection() {
   return (
     <section id="speakers" className="py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center">Our Speakers</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center"><br/>Our Speakers</h2>
         <div className="relative">
           <div
             ref={scrollContainerRef}

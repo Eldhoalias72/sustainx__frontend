@@ -39,9 +39,11 @@ export default function AboutSection() {
         viewport={{ once: true }}
         className="space-y-16"
       >
+        <div className="h-8"></div>
+
         {/* About SustainX Heading and Description */}
         <div className="text-center space-y-4">
-        <motion.h2
+          <motion.h2
             className="text-4xl md:text-5xl font-bold text-white"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,45 +57,60 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-             SustainX: Building Tomorrow is the flagship annual conference organized by the IGBC Student Chapter of CUSAT, a vibrant part of the Confederation of Indian Industry (CII). Through interactive sessions, workshops, and engaging activities, SustainX aims to empower participants to integrate eco-friendly practices into their personal and professional lives, contributing to a sustainable future for all.
+            SustainX: Building Tomorrow is the flagship annual conference organized by the IGBC
+            Student Chapter of CUSAT, a vibrant part of the Confederation of Indian Industry (CII).
+            Through interactive sessions, workshops, and engaging activities, SustainX aims to
+            empower participants to integrate eco-friendly practices into their personal and
+            professional lives, contributing to a sustainable future for all.
+            <br/><br/><br/>
           </motion.p>
-          <p className="text-green-300 text-lg md:text-xl max-w-3xl mx-auto">
-            <br></br><br></br><br></br><br></br>
-          </p>
         </div>
 
         {/* Grid Layout for Map and Features */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Google Map Section */}
-          <motion.div style={{ y }} className="relative h-[400px] rounded-xl overflow-hidden">
-            {/* Transparent Overlay for Click Handling */}
-            <a
-              href="https://www.google.com/maps/place/Seminar+Complex,+CUSAT/@10.0438128,76.3233438,17.75z/data=!4m7!3m6!1s0x3b080d223eeb1de1:0xce06a9f0d256857a!8m2!3d10.0439073!4d76.3249082!15sChVzZW1pbmFyIGNvbXBsZXggY3VzYXSSARV1bml2ZXJzaXR5X2RlcGFydG1lbnTgAQA!16s%2Fg%2F11cltd2jr7?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank" // Opens the link in a new tab
-              rel="noopener noreferrer" // Security best practice for external links
-              className="absolute inset-0 z-10 cursor-pointer"
+          {/* Google Map Section with Heading */}
+          <div className="relative">
+            {/* Event Venue Heading */}
+            <motion.h3
+              className="text-3xl md:text-4xl font-semibold text-white absolute top-[-50px] left-1/3 transform -translate-x-1/4"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              {/* Clickable Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/20 transition-colors">
-                <p className="text-white text-lg font-semibold">Click to open in Google Maps</p>
-              </div>
-            </a>
+              Event Venue
+            </motion.h3>
 
-            {/* Google Map Iframe */}
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.741178315091!2d76.3233438!3d10.0438128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d223eeb1de1%3A0xce06a9f0d256857a!2sSeminar%20Complex%2C%20CUSAT!5e0!3m2!1sen!2sin!4v1698765432100!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0, pointerEvents: "none" }} // Disable pointer events
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="object-cover"
-            ></iframe>
+            {/* Google Map Container */}
+            <motion.div style={{ y }} className="relative h-[400px] rounded-xl overflow-hidden">
+              {/* Transparent Overlay for Click Handling */}
+              <a
+                href="https://www.google.com/maps/place/Seminar+Complex,+CUSAT/@10.0438128,76.3233438,17.75z"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-10 cursor-pointer"
+              >
+                <div className="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/20 transition-colors">
+                  <p className="text-white text-lg font-semibold">Click to open in Google Maps</p>
+                </div>
+              </a>
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-green-950 via-transparent to-transparent" />
-          </motion.div>
+              {/* Google Map Iframe */}
+              <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.741178315091!2d76.3233438!3d10.0438128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d223eeb1de1%3A0xce06a9f0d256857a!2sSeminar%20Complex%2C%20CUSAT!5e0!3m2!1sen!2sin!4v1706556789012!5m2!1sen!2sin"
+  width="100%"
+  height="100%"
+  style={{ border: 0, pointerEvents: "none" }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  className="object-cover"
+></iframe>
+
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-green-950 via-transparent to-transparent" />
+            </motion.div>
+          </div>
 
           {/* Features Section */}
           <motion.div
