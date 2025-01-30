@@ -104,33 +104,33 @@ export default function EventSection() {
         {
           title: "Inauguration",
           description: "Opening ceremony and keynote speech",
-          speaker: "Dr. Jane Smith",
-          location: "Auditorium",
+         speaker: "will update soon",
+         // location: "Auditorium",
         },
       ],
     },
     {
       time: "10:30 - 11:30",
       events: [
-        { title: "Sustainable Energy Talk", speaker: "Prof. John Doe", location: "Room A" },
+        { title: "Sustainable Energy Talk", speaker: "will update soon", /*location: "Room A" */},
       ],
     },
     {
       time: "11:30 - 12:00",
       events: [
-        { title: "Coffee Break", description: "Refresh and network", location: "Main Hall" },
+        { title: "Coffee Break", description: "Refresh and network", /*location: "Main Hall"*/ },
       ],
     },
     {
       time: "12:00 - 1:30",
       events: [
-        { title: "Talk session", speaker: "Dr. Emily Chen", location: "Auditorium" },
+        { title: "Talk session", speaker: "will update soon", /*location: "Auditorium"*/ },
       ],
     },
     {
       time: "1:30 - 3:00",
       events: [
-        { title: "Lunch Break", description: "Organic and locally-sourced meal", location: "Dining Hall" },
+        { title: "Lunch Break",/* description: "Organic and locally-sourced meal", location: "Dining Hall"*/ },
       ],
     },
     {
@@ -139,19 +139,19 @@ export default function EventSection() {
         {
           isParallel: true,
           title1: "Talk: AI in Sustainability",
-          speaker1: "Dr. Alex Johnson",
-          location1: "Room A",
+          speaker1: "will update soon",
+         location1: "will update soon",
           title2: "Workshop",
-          description2: "Practical session ",
-          speaker2: "Eng. Sarah Lee",
-          location2: "Lab 1",
+         // description2: "will update soon",
+         speaker2: "will update soon",
+         location2: "will update soon",
         },
       ],
     },
     {
       time: "5:00 - 6:00",
       events: [
-        { title: "Closing Keynote", speaker: "Prof. Maria Garcia", location: "Auditorium" },
+        { title: "Closing Keynote", /*speaker: "Prof. Maria Garcia", location: "Auditorium" */},
       ],
     },
   ]

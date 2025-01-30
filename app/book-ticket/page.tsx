@@ -59,7 +59,7 @@ export default function BookTicket(): JSX.Element {
           <div className="text-center mb-6">
             <h1 className="text-3xl font-bold text-white">Book Your Ticket</h1>
             <p className="text-lg text-gray-100 mt-2">
-              Secure your spot for SustainX and be part of an unforgettable experience!
+              
             </p>
           </div>
 

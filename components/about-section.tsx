@@ -80,7 +80,7 @@ SustainX: Building Tomorrow is the annual flagship event of IGBC CUSAT, part of 
             <motion.div style={{ y }} className="relative h-[400px] rounded-xl overflow-hidden">
               {/* Transparent Overlay for Click Handling */}
               <a
-                href="https://www.google.com/maps/place/Seminar+Complex,+CUSAT/@10.0438128,76.3233438,17.75z"
+                href="https://www.google.com/maps/place/Seminar+Complex,+CUSAT/@10.0439126,76.3223333,17z/data=!3m1!4b1!4m6!3m5!1s0x3b080d223eeb1de1:0xce06a9f0d256857a!8m2!3d10.0439073!4d76.3249082!16s%2Fg%2F11cltd2jr7?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute inset-0 z-10 cursor-pointer"
