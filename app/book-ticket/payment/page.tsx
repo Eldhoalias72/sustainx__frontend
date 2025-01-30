@@ -114,7 +114,7 @@ export default function PaymentPage() {
               required
             />
           </div>
-          <div className="mt-4">
+          <div className="mt-4 flex flex-col items-center">
             <Button
               type="submit"
               className="w-full py-3 rounded-lg bg-green-700 text-white hover:bg-green-600 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
@@ -122,6 +122,9 @@ export default function PaymentPage() {
             >
               {loading ? <Spinner /> : "Submit"}
             </Button>
+            {loading && (
+              <p className="mt-4 text-sm text-gray-300">Please wait a minute...</p>
+            )}
           </div>
         </form>
       </motion.div>

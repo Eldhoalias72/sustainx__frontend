@@ -282,6 +282,7 @@ export default function EventSection() {
         <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
           Earn 50 KTU Points 🎉
         </div>
+
         {/* Duplicate set to create seamless loop */}
         <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
           Earn 50 KTU Points 🎉
@@ -292,6 +293,7 @@ export default function EventSection() {
         <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
           Earn 50 KTU Points 🎉
         </div>
+
       </motion.div>
     </div>
   </div>

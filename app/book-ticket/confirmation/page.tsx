@@ -1,12 +1,23 @@
 "use client"
 
-import { motion } from "framer-motion"
-import Navigation from "../../../components/navigation"
-import ParticleBackground from "../../../components/particle-background"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Navigation from "../../../components/navigation";
+import ParticleBackground from "../../../components/particle-background";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Loader2 } from "lucide-react";
 
 export default function TicketConfirmation() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-green-950 via-green-900 to-green-950 overflow-hidden">
       <ParticleBackground />
@@ -15,22 +26,29 @@ export default function TicketConfirmation() {
         <Navigation />
 
         <main className="container mx-auto px-4 py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="max-w-2xl mx-auto bg-green-900/30 backdrop-blur-sm rounded-xl p-8 border border-green-500/10 text-center"
-          >
-            <h1 className="text-4xl font-bold text-white mb-8">Ticket Booking Confirmation</h1>
-            <p className="text-green-300 text-xl mb-8">
-              Your response has been submitted. You will receive the ticket within 1-2 days in your email.
-            </p>
-            <Link href="/">
-              <Button className="bg-green-500 text-green-900 hover:bg-green-400 transition-colors">
-                Return to Home
-              </Button>
-            </Link>
-          </motion.div>
+          {isLoading ? (
+            <div className="flex flex-col items-center justify-center h-[50vh]">
+              <Loader2 className="animate-spin text-green-300 w-12 h-12" />
+              <p className="text-green-300 text-lg mt-4">Please wait a minute... </p>
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="max-w-2xl mx-auto bg-green-900/30 backdrop-blur-sm rounded-xl p-8 border border-green-500/10 text-center"
+            >
+              <h1 className="text-4xl font-bold text-white mb-8">Ticket Booking Confirmation</h1>
+              <p className="text-green-300 text-xl mb-8">
+                Your response has been submitted. You will receive the ticket within 1-2 days in your email.
+              </p>
+              <Link href="/">
+                <Button className="bg-green-500 text-green-900 hover:bg-green-400 transition-colors">
+                  Return to Home
+                </Button>
+              </Link>
+            </motion.div>
+          )}
         </main>
       </div>
 
@@ -44,5 +62,5 @@ export default function TicketConfirmation() {
         ></div>
       </div>
     </div>
-  )
+  );
 }
