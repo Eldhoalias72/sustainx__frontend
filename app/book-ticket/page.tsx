@@ -1,193 +1,125 @@
 "use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { Spinner } from '@/components/ui/spinner';
+import { useState, ChangeEvent, FormEvent } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
-export default function BookTicket() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    contactNumber: '',
-    email: '',
-    reEnterEmail: '', // New field
-    preferredSession: '',
-    paymentScreenshot: null as File | null,
-    referralCode: '',
-    transactionId: '', // New field
+interface FormData {
+  fullName: string;
+  contactNumber: string;
+  email: string;
+  reEnterEmail: string;
+  preferredSession: string;
+  referralCode: string;
+}
+
+type FormInputEvent = ChangeEvent<HTMLInputElement>;
+type FormSelectEvent = ChangeEvent<HTMLSelectElement>;
+
+export default function BookTicket(): JSX.Element {
+  const router = useRouter();
+  const [formData, setFormData] = useState<FormData>({
+    fullName: "",
+    contactNumber: "",
+    email: "",
+    reEnterEmail: "",
+    preferredSession: "",
+    referralCode: "",
   });
 
-  const [loading, setLoading] = useState(false);
-  const [emailError, setEmailError] = useState(''); // State for email validation error
-  const router = useRouter();
+  const [emailError, setEmailError] = useState<string>("");
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData((prev) => ({ ...prev, paymentScreenshot: e.target.files![0] }));
-    }
+  const handleChange = (e: FormInputEvent | FormSelectEvent): void => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-
-    // Validate email match
     if (formData.email !== formData.reEnterEmail) {
-      setEmailError('Emails do not match');
+      setEmailError("Emails do not match");
       return;
-    } else {
-      setEmailError('');
     }
-
-    setLoading(true);
-
-    const formDataToSend = new FormData();
-    formDataToSend.append('fullName', formData.fullName);
-    formDataToSend.append('contactNumber', formData.contactNumber);
-    formDataToSend.append('email', formData.email);
-    formDataToSend.append('reEnterEmail', formData.reEnterEmail); // Add re-entered email
-    formDataToSend.append('preferredSession', formData.preferredSession);
-    formDataToSend.append('referralCode', formData.referralCode);
-    formDataToSend.append('transactionId', formData.transactionId); // Add transaction ID
-    if (formData.paymentScreenshot) {
-      formDataToSend.append('paymentScreenshot', formData.paymentScreenshot);
-    }
-
-    try {
-      const response = await fetch('https://sustainx-backend.onrender.com/api/ticketBookings', {
-        method: 'POST',
-        body: formDataToSend,
-      });
-      if (response.ok) {
-        console.log('Booking saved successfully');
-        router.push('/book-ticket/confirmation');
-      } else {
-        console.error('Failed to save booking');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setLoading(false);
-    }
+    setEmailError("");
+    localStorage.setItem("bookingFormData", JSON.stringify(formData));
+    router.push("/book-ticket/payment");
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-green-950 via-green-900 to-green-950 overflow-hidden">
-      <div className="relative z-10 flex justify-between items-center p-4">
-        <a href="https://www.igbccusat.com/">
-          <Image src="/images/igbc_soe_image.png" alt="IGBC Logo" width={80} height={80} />
-        </a>
-        <Button onClick={() => router.push('/')} className="bg-green-500 text-green-900 hover:bg-green-400">
-          Return Home
-        </Button>
-      </div>
+    <div className="relative min-h-screen flex items-center justify-center bg-[#00471B] text-white px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="w-full max-w-4xl bg-[#116530] backdrop-blur-lg rounded-2xl shadow-xl p-10 flex relative"
+      >
+        {/* Left - Form */}
+        <div className="w-1/2">
+          <div className="text-center mb-6">
+            <h1 className="text-3xl font-bold text-white">Book Your Ticket</h1>
+            <p className="text-lg text-gray-100 mt-2">
+              Secure your spot for SustainX and be part of an unforgettable experience!
+            </p>
+          </div>
 
-      <main className="container mx-auto px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="max-w-2xl mx-auto bg-green-900/30 backdrop-blur-sm rounded-xl p-8 border border-green-500/10"
-        >
-          <h1 className="text-4xl font-bold text-white mb-8">Book Your Ticket</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block text-white mb-2" htmlFor="fullName">Full Name</label>
-              <input
-                type="text"
-                id="fullName"
-                className="w-full px-3 py-2 rounded bg-gray-200"
-                value={formData.fullName}
-                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-white mb-2" htmlFor="contactNumber">Contact Number</label>
-              <input
-                type="text"
-                id="contactNumber"
-                className="w-full px-3 py-2 rounded bg-gray-200"
-                value={formData.contactNumber}
-                onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-white mb-2" htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                className="w-full px-3 py-2 rounded bg-gray-200"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-white mb-2" htmlFor="reEnterEmail">Re-enter Email</label>
-              <input
-                type="email"
-                id="reEnterEmail"
-                className="w-full px-3 py-2 rounded bg-gray-200"
-                value={formData.reEnterEmail}
-                onChange={(e) => setFormData({ ...formData, reEnterEmail: e.target.value })}
-                required
-              />
-              {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>}
-            </div>
-            <div className="mb-4">
-              <label className="block text-white mb-2" htmlFor="preferredSession">Preferred Session</label>
+          <form onSubmit={handleSubmit} className="space-y-3">
+            {["fullName", "contactNumber", "email", "reEnterEmail", "referralCode"].map((id) => (
+              <div key={id}>
+                <input
+                  type={id.includes("email") ? "email" : "text"}
+                  id={id}
+                  value={formData[id as keyof FormData]}
+                  onChange={handleChange}
+                  placeholder={
+                    id === "fullName"
+                      ? "Full Name"
+                      : id === "contactNumber"
+                      ? "Phone Number"
+                      : id === "email"
+                      ? "Email Address"
+                      : id === "reEnterEmail"
+                      ? "Re-enter Email"
+                      : "Referral Code (Optional)"
+                  }
+                  required={id !== "referralCode"}
+                  className="w-full px-4 py-2 text-base bg-gray-200 text-black rounded-md border border-gray-500 focus:outline-none focus:ring-2 focus:ring-green-700 placeholder-gray-600 transition duration-200"
+                />
+                {id === "reEnterEmail" && emailError && <p className="text-red-600 text-sm">{emailError}</p>}
+              </div>
+            ))}
+
+            <div>
               <select
                 id="preferredSession"
-                className="w-full px-3 py-2 rounded bg-gray-200"
                 value={formData.preferredSession}
-                onChange={(e) => setFormData({ ...formData, preferredSession: e.target.value })}
+                onChange={handleChange}
                 required
+                className="w-full px-4 py-2 text-base bg-gray-200 text-black rounded-md border border-gray-500 focus:outline-none focus:ring-2 focus:ring-green-700 transition duration-200"
               >
                 <option value="">Select a session</option>
                 <option value="Talk Session">Talk Session</option>
                 <option value="Workshop">Workshop</option>
               </select>
             </div>
-            <div className="mb-4">
-              <label className="block text-white mb-2" htmlFor="paymentScreenshot">Payment Screenshot</label>
-              <input
-                type="file"
-                id="paymentScreenshot"
-                className="w-full px-3 py-2 rounded bg-gray-200"
-                onChange={handleFileChange}
-                required
-              />
+
+            <div className="mt-4">
+              <Button
+                type="submit"
+                className="w-full py-3 rounded-lg bg-green-700 text-white hover:bg-green-600 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              >
+                Pay
+              </Button>
             </div>
-            <div className="mb-4">
-              <label className="block text-white mb-2" htmlFor="transactionId">Transaction ID</label>
-              <input
-                type="text"
-                id="transactionId"
-                className="w-full px-3 py-2 rounded bg-gray-200"
-                value={formData.transactionId}
-                onChange={(e) => setFormData({ ...formData, transactionId: e.target.value })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-white mb-2" htmlFor="referralCode">Referral Code (Optional)</label>
-              <input
-                type="text"
-                id="referralCode"
-                className="w-full px-3 py-2 rounded bg-gray-200"
-                value={formData.referralCode}
-                onChange={(e) => setFormData({ ...formData, referralCode: e.target.value })}
-              />
-            </div>
-            <Button type="submit" className="bg-green-500 text-green-900 hover:bg-green-400" disabled={loading}>
-              {loading ? <Spinner /> : 'Submit'}
-            </Button>
           </form>
-        </motion.div>
-      </main>
+        </div>
+
+        {/* Right - Image & Welcome Message */}
+        <div className="w-1/2 flex flex-col items-center justify-center text-center mt-[-250px]">
+          <Image src="/images/wallehang.png" alt="WALL-E" width={180} height={180} className="object-contain" />
+          <p className="text-white text-2xl font-bold mt-4">Welcome, {formData.fullName || "Future Attendee"}!</p>
+        </div>
+      </motion.div>
     </div>
   );
 }

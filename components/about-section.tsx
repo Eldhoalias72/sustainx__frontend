@@ -7,23 +7,23 @@ export default function AboutSection() {
   const features = [
     {
       icon: <Leaf className="w-6 h-6" />,
-      title: "Sustainable Innovation",
-      description: "Leading the way in green building practices and environmental consciousness",
+      title: "Workshop",
+      description: "Build, code, and innovate for a greener future.",
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Expert Network",
-      description: "Connect with industry leaders and sustainability experts",
+      title: "Talk Session",
+      description: "Deep dive into tech-driven sustainability.",
     },
     {
       icon: <Calendar className="w-6 h-6" />,
-      title: "Annual Event",
-      description: "IGBC CUSAT's flagship event bringing together visionaries",
+      title: "Date",
+      description: "15 march 2025",
     },
     {
       icon: <Globe className="w-6 h-6" />,
-      title: "Global Impact",
-      description: "Contributing to worldwide sustainable development goals",
+      title: "Exhibition",
+      description: "Explore cutting-edge green tech in action.",
     },
   ];
 
@@ -57,11 +57,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            SustainX: Building Tomorrow is the flagship annual conference organized by the IGBC
-            Student Chapter of CUSAT, a vibrant part of the Confederation of Indian Industry (CII).
-            Through interactive sessions, workshops, and engaging activities, SustainX aims to
-            empower participants to integrate eco-friendly practices into their personal and
-            professional lives, contributing to a sustainable future for all.
+SustainX: Building Tomorrow is the annual flagship event of IGBC CUSAT, part of CII. A hub for innovation and sustainability, it brings together cutting-edge tech, impactful ideas, and hands-on experiences to shape a greener future.
             <br/><br/><br/>
           </motion.p>
         </div>
