@@ -115,7 +115,7 @@ export default function BookTicket(): JSX.Element {
         </div>
 
         {/* Right - Image & Welcome Message */}
-        <div className="w-1/2 flex flex-col items-center justify-center text-center mt-[-250px]">
+        <div className="w-1/2 flex flex-col items-center justify-center text-center mt-[-185px]">
           <Image src="/images/wallehang.png" alt="WALL-E" width={180} height={180} className="object-contain" />
           <p className="text-white text-2xl font-bold mt-4">Welcome, {formData.fullName || "Future Attendee"}!</p>
         </div>
