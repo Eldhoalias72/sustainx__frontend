@@ -112,7 +112,7 @@ export default function EventSection() {
     {
       time: "10:30 - 11:30",
       events: [
-        { title: "Sustainable Energy Talk", speaker: "will update soon", /*location: "Room A" */},
+        { title: "Talk session", speaker: "will update soon", /*location: "Room A" */},
       ],
     },
     {
@@ -138,7 +138,7 @@ export default function EventSection() {
       events: [
         {
           isParallel: true,
-          title1: "Talk: AI in Sustainability",
+          title1: "Talk session",
           speaker1: "will update soon",
          location1: "will update soon",
           title2: "Workshop",

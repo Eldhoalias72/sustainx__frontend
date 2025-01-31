@@ -18,7 +18,7 @@ export default function AboutSection() {
     {
       icon: <Calendar className="w-6 h-6" />,
       title: "Date",
-      description: "15 march 2025",
+      description: "15 MARCH 2025",
     },
     {
       icon: <Globe className="w-6 h-6" />,
@@ -126,7 +126,7 @@ SustainX: Building Tomorrow is the annual flagship event of IGBC CUSAT, part of 
                 className="p-6 rounded-xl bg-green-900/30 backdrop-blur-sm border border-green-500/10 hover:border-green-500/30 transition-colors"
               >
                 <div className="text-green-400 mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-2 font-serif">{feature.title}</h3>
                 <p className="text-green-300/80">{feature.description}</p>
               </motion.div>
             ))}
