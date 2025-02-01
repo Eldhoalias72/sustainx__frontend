@@ -14,10 +14,10 @@ interface Speaker {
 const speakers: Speaker[] = [
   {
     name: "Licypriya Kangujam",
-    reputation: "Climate Activist",
+    reputation: "International Climate Activist | Founder, The Child Movement | UN Youth Advocate",
     image: "/images/licy_igbc.jpg",
     details:
-      "Licypriya is a Thirteen-Years-Old Indian Climate Activists. She has been championing her cause since six years old to protect, preserve and nurture our environment by fighting the climate change. She is one of the youngest climate activists globally and addressed the world leaders in the United Nations Climate Conference 2019 (COP25) in Madrid, Spain calling the world leaders to take immediate climate actions to save our planet and their future. She attended the 77th Session of the United Nations General Assembly 2022.",
+      "A leading voice in climate activism since the age of six, Licypriya Kangujam advocates for climate policy reforms, education, and sustainability through The Child Movement. She has addressed world leaders at COP and global forums, inspiring millions.At SustainXTomorrow, she shares her journey, the power of youth leadership, and the future of sustainability.Don’t miss this inspiring session!",
   },
   {
     name: "",

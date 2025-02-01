@@ -57,7 +57,13 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-SustainX: Building Tomorrow is the annual flagship event of IGBC CUSAT, part of CII. A hub for innovation and sustainability, it brings together cutting-edge tech, impactful ideas, and hands-on experiences to shape a greener future.
+SustainX Building Tomorrow :-
+
+Kerala’s Premier Student-Led Sustainability Conference.
+
+Bringing together young innovators, experts, and leaders, SustainX Building Tomorrow is a platform for bold ideas, collaboration, and real-world solutions. With students,experts, and industry leaders across Kerala, we’re redefining sustainability through talks, workshops, and keynotes.
+
+Join us in shaping a smarter, greener future!
             <br/><br/><br/>
           </motion.p>
         </div>
