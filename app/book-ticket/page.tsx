@@ -13,6 +13,7 @@ interface FormData {
   reEnterEmail: string;
   preferredSession: string;
   referralCode: string;
+  foodPreference: string;
 }
 
 type FormInputEvent = ChangeEvent<HTMLInputElement>;
@@ -27,6 +28,7 @@ export default function BookTicket(): JSX.Element {
     reEnterEmail: "",
     preferredSession: "",
     referralCode: "",
+    foodPreference: "",
   });
 
   const [emailError, setEmailError] = useState<string>("");
@@ -103,6 +105,21 @@ export default function BookTicket(): JSX.Element {
               </select>
             </div>
 
+                        {/* Food Preference Dropdown (New Field) */}
+                        <div>
+              <select
+                id="foodPreference"
+                value={formData.foodPreference}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 text-base bg-gray-200 text-black rounded-md border border-gray-500 focus:outline-none focus:ring-2 focus:ring-green-700 transition duration-200"
+              >
+                <option value="">Select Food Preference</option>
+                <option value="Veg">Veg</option>
+                <option value="Non-Veg">Non-Veg</option>
+              </select>
+            </div>
+
             <div className="mt-4">
               <Button
                 type="submit"
@@ -115,7 +132,7 @@ export default function BookTicket(): JSX.Element {
         </div>
 
         {/* Right - Image & Welcome Message */}
-        <div className="w-1/2 flex flex-col items-center justify-center text-center mt-[-185px]">
+        <div className="w-1/2 flex flex-col items-center justify-center text-center mt-[-235px]">
           <Image src="/images/wallehang.png" alt="WALL-E" width={180} height={180} className="object-contain" />
           <p className="text-white text-2xl font-bold mt-4">Welcome, {formData.fullName || "Future Attendee"}!</p>
         </div>
