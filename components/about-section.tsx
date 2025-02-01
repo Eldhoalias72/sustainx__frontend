@@ -7,8 +7,8 @@ export default function AboutSection() {
   const features = [
     {
       icon: <Leaf className="w-6 h-6" />,
-      title: "Workshop",
-      description: "Build, code, and innovate for a greener future.",
+      title: "Date",
+      description: "15 MARCH 2025 ",
     },
     {
       icon: <Users className="w-6 h-6" />,
@@ -17,8 +17,8 @@ export default function AboutSection() {
     },
     {
       icon: <Calendar className="w-6 h-6" />,
-      title: "Date",
-      description: "15 MARCH 2025",
+      title: "Workshop",
+      description: "Build, code, and innovate for a greener future.",
     },
     {
       icon: <Globe className="w-6 h-6" />,
