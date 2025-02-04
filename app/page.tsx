@@ -10,6 +10,7 @@ import SpeakersSection from "../components/speakers-section"
 import ContactSection from "../components/contact-section"
 import Image from "next/image"
 import { FaArrowDown } from "react-icons/fa" // Import the arrow icon
+import Popup from "../components/Popup"
 
 
 interface Particle {
@@ -337,6 +338,8 @@ export default function Home() {
         </main>
         <ContactSection />
       </div>
+      <Popup />
+
     </div>
   )
 }
