@@ -2,51 +2,43 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const geistSans = localFont({ 
+  src: "./fonts/GeistVF.woff", 
+  variable: "--font-geist-sans", 
+  weight: "100 900" 
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const geistMono = localFont({ 
+  src: "./fonts/GeistMonoVF.woff", 
+  variable: "--font-geist-mono", 
+  weight: "100 900" 
 });
 
 export const metadata: Metadata = {
   title: "sustainx",
   description: "Building Tomorrow",
   icons: {
-    icon: "/favicon.ico",
-  },
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' }
+    ],
+  }
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+export default function RootLayout({ 
+  children, 
+}: Readonly<{ 
+  children: React.ReactNode; 
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/jpg" href="/SustainX.jpg" />
-        <link rel="apple-touch-icon" href="/SustainX.jpg" />
-        <script type="application/ld+json" suppressHydrationWarning>
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "sustainx",
-            "url": "https://sustainx.igbccusat.com",
-            "logo": "https://sustainx.igbccusat.com/public/images/SustainX.jpg",
-            
-          })}
-        </script>
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>
   );
 }
-
