@@ -38,6 +38,7 @@ export default function RootLayout({
             "@type": "Organization",
             "name": "sustainx",
             "url": "https://sustainx.igbccusat.com",
+            "logo": "https://sustainx.igbccusat.com/public/images/SustainX.jpg",
             
           })}
         </script>
