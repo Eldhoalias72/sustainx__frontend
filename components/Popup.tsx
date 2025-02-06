@@ -15,7 +15,7 @@ export default function Popup() {
       initial={{ opacity: 0, y: 50, scale: 0.8 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed bottom-6 right-6 bg-green-600 text-white p-5 rounded-2xl shadow-lg max-w-xs z-50 border-2 border-green-400"
+      className="fixed bottom-6 right-6 bg-green-900 text-white p-5 rounded-2xl shadow-lg max-w-xs z-50 border-2 border-green-400"
     >
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-bold">Book Your Ticket Now</h2>

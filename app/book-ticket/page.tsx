@@ -99,7 +99,7 @@ export default function BookTicket(): JSX.Element {
                 required
                 className="w-full px-4 py-2 text-base bg-gray-200 text-black rounded-md border border-gray-500 focus:outline-none focus:ring-2 focus:ring-green-700 transition duration-200"
               >
-                <option value="">Select a session</option>
+                <option value="">Select Afternoon Session</option>
                 <option value="Talk Session">Talk Session</option>
                 <option value="Workshop">Workshop</option>
               </select>
