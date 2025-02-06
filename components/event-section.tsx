@@ -245,7 +245,7 @@ export default function EventSection() {
   transition={{ duration: 0.8, delay: 0.2 }}
 >
   <p className="text-green-300 text-lg mb-6">
-    Don&apos;t miss out on this exciting event! Book your ticket now and be part of the sustainable future.
+  Secure your spot today.<br></br> Register now for ₹499, or enjoy a ₹50 discount by entering a referral code, making your registration only ₹449.
   </p>
   <div className="flex justify-center">
     <motion.a
