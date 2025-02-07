@@ -45,8 +45,15 @@ export default function BookTicket(): JSX.Element {
     }
     setEmailError("");
     localStorage.setItem("bookingFormData", JSON.stringify(formData));
-    router.push("/book-ticket/payment");
+  
+    // Check referral code length and navigate accordingly
+    if (formData.referralCode.trim().length === 5) {
+      router.push("/book-ticket/paymentrefer");
+    } else {
+      router.push("/book-ticket/payment");
+    }
   };
+  
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-[#00471B] text-white px-4">
