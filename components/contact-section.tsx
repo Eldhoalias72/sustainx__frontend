@@ -63,7 +63,7 @@ const ContactSection = () => {
                 <Instagram size={24} className="text-green-500" />
               </a>
               <a
-                href="https://www.linkedin.com/in/igbc-cusat-910131324"
+                href="https://www.linkedin.com/company/igbc-cusat-chapter/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-green-400 transition-colors"
