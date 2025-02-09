@@ -11,7 +11,7 @@ interface FormData {
   contactNumber: string;
   email: string;
   reEnterEmail: string;
-  preferredSession: string;
+  //preferredSession: string;
   referralCode: string;
   foodPreference: string;
 }
@@ -26,7 +26,7 @@ export default function BookTicket(): JSX.Element {
     contactNumber: "",
     email: "",
     reEnterEmail: "",
-    preferredSession: "",
+    //preferredSession: "",
     referralCode: "",
     foodPreference: "",
   });
@@ -97,7 +97,7 @@ export default function BookTicket(): JSX.Element {
                 {id === "reEnterEmail" && emailError && <p className="text-red-600 text-sm">{emailError}</p>}
               </div>
             ))}
-
+{/*
             <div>
               <select
                 id="preferredSession"
@@ -111,7 +111,7 @@ export default function BookTicket(): JSX.Element {
                 <option value="Workshop">Workshop</option>
               </select>
             </div>
-
+*/}
                         {/* Food Preference Dropdown (New Field) */}
                         <div>
               <select
@@ -139,7 +139,7 @@ export default function BookTicket(): JSX.Element {
         </div>
 
         {/* Right - Image & Welcome Message */}
-        <div className="w-full sm:w-1/2 flex flex-col items-center justify-center text-center mt-[-265px] sm:mt-[-150px] md:mt-[-100px] lg:mt-[-235px]">
+        <div className="w-full sm:w-1/2 flex flex-col items-center justify-center text-center mt-[-205px] sm:mt-[-150px] md:mt-[-100px] lg:mt-[-200px]">
           <Image src="/images/wallehang.png" alt="WALL-E" width={180} height={180} className="object-contain" />
           <p className="text-white text-2xl font-bold mt-4">Welcome, {formData.fullName || "Future Attendee"}!</p>
         </div>
