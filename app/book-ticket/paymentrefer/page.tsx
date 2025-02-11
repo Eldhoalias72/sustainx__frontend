@@ -104,7 +104,7 @@ export default function PaymentPage() {
             />
           </div>
           <div>
-            <label htmlFor="transactionId" className="block text-sm font-medium">Transaction ID</label>
+            <label htmlFor="transactionId" className="block text-sm font-medium">UPI Transaction ID</label>
             <input
               type="text"
               id="transactionId"
