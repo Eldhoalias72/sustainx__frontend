@@ -20,22 +20,22 @@ const speakers: Speaker[] = [
       "A leading voice in climate activism since the age of six, Licypriya Kangujam advocates for climate policy reforms, education, and sustainability through The Child Movement. She has addressed world leaders at COP and global forums, inspiring millions.At SustainXTomorrow, she shares her journey, the power of youth leadership, and the future of sustainability.Don’t miss this inspiring session!",
   },
   {
-    name: "",
-    reputation: "",
-    image: "/images/coming.png",
-    details: "Will be updated soon",
-  },
+    name: "Renjini Thampi",
+    reputation: "Eco - Innovator | Founder & CEO | Vapasee Designs",
+    image: "/images/rajnithampi.jpg",
+    details: "Renjini Thampi, known as the 'Glass Upcycling Woman,' is the founder of Vapasee, a brand transforming discarded glass into sustainable décor. A pioneer in eco-conscious entrepreneurship, she was incubated at IIM Bangalore’s NSRCEL and selected for the Climate Collective Launchpad in 2020. In 2021, she was recognized as a 'UN Women Industry Disruptor.' Recently, she was named one of 20 climate leaders by the Women Climate Collective program, supported by the L'Oréal Foundation."
+   },
   {
-    name: "",
-    reputation: "",
-    image: "/images/coming.png",
-    details: "Will be updated soon",
-  },
+    name: "Prerna Prasad",
+    reputation: "Founder Ecoplore",
+    image: "/images/prerna.jpg",
+    details: "Prerna Prasad is the founder and CEO of Ecoplore, a platform promoting eco-friendly accommodations in India. A former journalist, she launched Ecoplore in 2016 after recognizing the environmental impact of conventional tourism. She personally verifies properties to ensure they use sustainable materials like mud, wood, bamboo, or stone and maintain at least 33% greenery.  Under her leadership, Ecoplore won the Outlook Responsible Tourism Award (2019) and was recognized by UNEP for supporting SDG 12."
+},
   {
-    name: "",
-    reputation: "",
-    image: "/images/coming.png",
-    details: "Will be updated soon",
+    name: "Shuva Raha",
+    reputation: "Lead- International Cooperation at CEEW",
+    image: "/images/shuva.jpg",
+    details: "Shuva Raha is a Fellow and Lead for International Cooperation at CEEW, overseeing programs across Asia-Oceania, West Asia, Africa, Europe, and the Americas. She advises on G20, BRICS, and UN initiatives, focusing on energy security, climate resilience, and sustainable development. With 25+ years of experience in public policy and corporate operations, she engages with governments and industries to drive impactful change. A Global Solutions Fellow and international speaker, she previously held leadership roles in media and industrial policy, shaping India’s renewable energy landscape.",
   },
 ]
 
