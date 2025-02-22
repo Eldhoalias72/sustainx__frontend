@@ -104,7 +104,7 @@ export default function EventSection() {
         {
           title: "Inauguration",
           description: "Opening ceremony and keynote speech",
-         speaker: "will update soon",
+         //speaker: "will update soon",
          // location: "Auditorium",
         },
       ],
@@ -124,7 +124,7 @@ export default function EventSection() {
     {
       time: "12:00 - 1:30",
       events: [
-        { title: "Talk session", speaker: "will update soon", /*location: "Auditorium"*/ },
+        { title: "Panel discussion", speaker: "will update soon", /*location: "Auditorium"*/ },
       ],
     },
     {
@@ -139,12 +139,13 @@ export default function EventSection() {
         {
           isParallel: true,
           title1: "Talk session",
-          speaker1: "will update soon",
+          speaker1: "will update1 soon",
          location1: "will update soon",
           title2: "Workshop",
          // description2: "will update soon",
          speaker2: "will update soon",
          location2: "will update soon",
+         title3: "Workshop",
         },
       ],
     },

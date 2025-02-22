@@ -33,9 +33,15 @@ const speakers: Speaker[] = [
 },
   {
     name: "Shuva Raha",
-    reputation: "Lead- International Cooperation at CEEW",
+    reputation: "Fellow & Lead | International Cooperation at CEEW",
     image: "/images/shuva.jpg",
-    details: "Shuva Raha is a Fellow and Lead for International Cooperation at CEEW, overseeing programs across Asia-Oceania, West Asia, Africa, Europe, and the Americas. She advises on G20, BRICS, and UN initiatives, focusing on energy security, climate resilience, and sustainable development. With 25+ years of experience in public policy and corporate operations, she engages with governments and industries to drive impactful change. A Global Solutions Fellow and international speaker, she previously held leadership roles in media and industrial policy, shaping India’s renewable energy landscape.",
+    details: "Shuva Raha is a Fellow and Lead for International Cooperation at CEEW, overseeing programs in Asia-Oceania, West Asia, Africa, Europe, and the Americas. She advises on G20, BRICS, and UN initiatives, focusing on energy security, climate resilience, and sustainable development. With 25+ years of experience in public policy and corporate operations, she collaborates with governments and industries to drive change. A Global Solutions Fellow and international speaker, she has also held leadership roles in media and industrial policy, shaping India’s renewable energy landscape.",
+  },
+  {
+    name: "K Lava",
+    reputation: "Chairman of the IGBC Kochi Chapter",
+    image: "/images/lava.png",
+    details: "K. Lava, Chairman of the IGBC Kochi Chapter, is a key advocate for sustainable building practices in Kerala. Under his leadership, IGBC Kochi has promoted green initiatives, encouraging developers to adopt eco-friendly construction. As Managing Director of SFS Homes, he has integrated IGBC principles, earning prestigious green building certifications. His efforts extend to academia, supporting IGBC student chapters to foster future sustainability leaders. With extensive experience in the real estate sector, he continues to drive IGBC’s mission of building a greener and more sustainable future.",
   },
 ]
 
