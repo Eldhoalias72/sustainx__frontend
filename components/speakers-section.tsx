@@ -20,6 +20,24 @@ const speakers: Speaker[] = [
       "A leading voice in climate activism since the age of six, Licypriya Kangujam advocates for climate policy reforms, education, and sustainability through The Child Movement. She has addressed world leaders at COP and global forums, inspiring millions.At SustainXTomorrow, she shares her journey, the power of youth leadership, and the future of sustainability.Don’t miss this inspiring session!",
   },
   {
+    name: "V Suresh ",
+    reputation: "Chairman - Policies and Advocacy Committee IGBC | President - Good Governance India Foundation",
+    image: "/images/suresh.jpg",
+    details: "V. Suresh, former IGBC Chairman and current Chair of its Policy and Advocacy Committee, is President of the Good Governance India Foundation. A strong advocate of sustainability, he led awareness efforts like 'Harit Prem Bharat Mahotsav' and won the 1997 'Best Chief Executive of the Year' award. He promotes green buildings that conserve resources, reduce waste, and enhance efficiency, strengthening India’s green building movement through IGBC’s rating systems.",
+  },
+  {
+    name: "K Lava",
+    reputation: "Chairman- IGBC Cochin Chapter| MD- SFS Homes Pvt Ltd.",
+    image: "/images/lava.png",
+    details: "K. Lava, Chairman of the IGBC Kochi Chapter, is a key advocate for sustainable building practices in Kerala. Under his leadership, IGBC Kochi has promoted green initiatives, encouraging developers to adopt eco-friendly construction. As Managing Director of SFS Homes, he has integrated IGBC principles, earning prestigious green building certifications. His efforts extend to academia, supporting IGBC student chapters to foster future sustainability leaders. ",
+  },
+  {
+    name: "Dr Jayaraman Chillayil",
+    reputation: "Founder & CEO - Equinoct",
+    image: "/images/jayaraman.jpg",
+    details: "Dr. Jayaraman Chillayil is the Co-founder and Managing Director of Equinoct, a community-sourced modeling solutions provider. With 28 years of industrial experience, he holds a Ph.D. in Energy Management from Amrita School of Business. He previously served as Senior Manager at BPCL Kochi Refinery. A two-time Fulbright Scholar and recipient of  Fulbright Kalam Climate Change Doctoral Fellowship",
+   },
+  {
     name: "Renjini Thampi",
     reputation: "Eco - Innovator | Founder & CEO | Vapasee Designs",
     image: "/images/rajnithampi.jpg",
@@ -37,12 +55,7 @@ const speakers: Speaker[] = [
     image: "/images/shuva.jpg",
     details: "Shuva Raha is a Fellow and Lead for International Cooperation at CEEW, overseeing programs in Asia-Oceania, West Asia, Africa, Europe, and the Americas. She advises on G20, BRICS, and UN initiatives, focusing on energy security, climate resilience, and sustainable development. With 25+ years of experience in public policy and corporate operations, she collaborates with governments and industries to drive change. A Global Solutions Fellow and international speaker, she has also held leadership roles in media and industrial policy, shaping India’s renewable energy landscape.",
   },
-  {
-    name: "K Lava",
-    reputation: "Chairman of the IGBC Kochi Chapter",
-    image: "/images/lava.png",
-    details: "K. Lava, Chairman of the IGBC Kochi Chapter, is a key advocate for sustainable building practices in Kerala. Under his leadership, IGBC Kochi has promoted green initiatives, encouraging developers to adopt eco-friendly construction. As Managing Director of SFS Homes, he has integrated IGBC principles, earning prestigious green building certifications. His efforts extend to academia, supporting IGBC student chapters to foster future sustainability leaders. With extensive experience in the real estate sector, he continues to drive IGBC’s mission of building a greener and more sustainable future.",
-  },
+
 ]
 
 const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
