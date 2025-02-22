@@ -13,6 +13,7 @@ interface FormData {
   reEnterEmail: string;
   referralCode: string;
   foodPreference: string;
+  college: string;
 }
 
 type FormInputEvent = ChangeEvent<HTMLInputElement>;
@@ -27,6 +28,7 @@ export default function BookTicket(): JSX.Element {
     reEnterEmail: "",
     referralCode: "",
     foodPreference: "",
+    college: "",
   });
 
   const [emailError, setEmailError] = useState<string>("");
@@ -61,7 +63,7 @@ export default function BookTicket(): JSX.Element {
         className="w-full max-w-4xl bg-[#116530] backdrop-blur-lg rounded-2xl shadow-xl p-10 flex flex-col md:flex-row items-center"
       >
         {/* Right Section (Image & Welcome Message) - Moves to Top on Mobile */}
-        <div className="w-full flex flex-col items-center justify-center text-center py-6 mt-[-80px] md:mt-[-200px]">
+        <div className="w-full flex flex-col items-center justify-center text-center py-6 mt-[-80px] md:mt-[-270px]">
         <Image src="/images/wallehang.png" alt="WALL-E" width={180} height={180} className="object-contain" />
         <p className="text-white text-3xl font-bold mt-4">Welcome, {formData.fullName || "Future Attendee"}!</p>
         </div>
@@ -74,7 +76,7 @@ export default function BookTicket(): JSX.Element {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-3">
-            {["fullName", "contactNumber", "email", "reEnterEmail", "referralCode"].map((id) => (
+            {["fullName", "contactNumber", "email", "reEnterEmail","college", "referralCode"].map((id) => (
               <div key={id}>
                 <input
                   type={id.includes("email") ? "email" : "text"}
@@ -90,6 +92,8 @@ export default function BookTicket(): JSX.Element {
                       ? "Email Address"
                       : id === "reEnterEmail"
                       ? "Re-enter Email"
+                      : id === "college"
+                      ? "College/School Name"
                       : "Referral Code (Optional)"
                   }
                   required={id !== "referralCode"}
@@ -106,11 +110,12 @@ export default function BookTicket(): JSX.Element {
                 value={formData.foodPreference}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 text-base bg-gray-200 text-black rounded-md border border-gray-500 focus:outline-none focus:ring-2 focus:ring-green-700 transition duration-200"
+                className="w-full px-4 py-2 text-base bg-gray-200 text-black rounded-md border border-gray-500 focus:outline-none focus:ring-2 focus:ring-green-700 placeholder-gray-600 transition duration-200"
               >
                 <option value="">Select Food Preference</option>
                 <option value="Veg">Veg</option>
                 <option value="Non-Veg">Non-Veg</option>
+                <option value="Non-Veg">Iftar</option>
               </select>
             </div>
 
