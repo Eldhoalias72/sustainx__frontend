@@ -37,12 +37,12 @@ const speakers: Speaker[] = [
     image: "/images/jayaraman.jpg",
     details: "Dr. Jayaraman Chillayil is the Co-founder and Managing Director of Equinoct, a community-sourced modeling solutions provider. With 28 years of industrial experience, he holds a Ph.D. in Energy Management from Amrita School of Business. He previously served as Senior Manager at BPCL Kochi Refinery. A two-time Fulbright Scholar and recipient of  Fulbright Kalam Climate Change Doctoral Fellowship",
    },
-  {
-    name: "Renjini Thampi",
-    reputation: "Eco - Innovator | Founder & CEO | Vapasee Designs",
-    image: "/images/rajnithampi.jpg",
-    details: "Renjini Thampi, known as the 'Glass Upcycling Woman,' is the founder of Vapasee, a brand transforming discarded glass into sustainable décor. A pioneer in eco-conscious entrepreneurship, she was incubated at IIM Bangalore’s NSRCEL and selected for the Climate Collective Launchpad in 2020. In 2021, she was recognized as a 'UN Women Industry Disruptor.' Recently, she was named one of 20 climate leaders by the Women Climate Collective program, supported by the L'Oréal Foundation."
-   },
+   {
+    name: "Shuva Raha",
+    reputation: "Fellow & Lead | International Cooperation at CEEW",
+    image: "/images/shuva.jpg",
+    details: "Shuva Raha is a Fellow and Lead for International Cooperation at CEEW, overseeing programs in Asia-Oceania, West Asia, Africa, Europe, and the Americas. She advises on G20, BRICS, and UN initiatives, focusing on energy security, climate resilience, and sustainable development. With 25+ years of experience in public policy and corporate operations, she collaborates with governments and industries to drive change. A Global Solutions Fellow and international speaker, she has also held leadership roles in media and industrial policy, shaping India’s renewable energy landscape.",
+  },
   {
     name: "Prerna Prasad",
     reputation: "Founder Ecoplore",
@@ -50,12 +50,11 @@ const speakers: Speaker[] = [
     details: "Prerna Prasad is the founder and CEO of Ecoplore, a platform promoting eco-friendly accommodations in India. A former journalist, she launched Ecoplore in 2016 after recognizing the environmental impact of conventional tourism. She personally verifies properties to ensure they use sustainable materials like mud, wood, bamboo, or stone and maintain at least 33% greenery.  Under her leadership, Ecoplore won the Outlook Responsible Tourism Award (2019) and was recognized by UNEP for supporting SDG 12."
 },
   {
-    name: "Shuva Raha",
-    reputation: "Fellow & Lead | International Cooperation at CEEW",
-    image: "/images/shuva.jpg",
-    details: "Shuva Raha is a Fellow and Lead for International Cooperation at CEEW, overseeing programs in Asia-Oceania, West Asia, Africa, Europe, and the Americas. She advises on G20, BRICS, and UN initiatives, focusing on energy security, climate resilience, and sustainable development. With 25+ years of experience in public policy and corporate operations, she collaborates with governments and industries to drive change. A Global Solutions Fellow and international speaker, she has also held leadership roles in media and industrial policy, shaping India’s renewable energy landscape.",
-  },
-
+    name: "Renjini Thampi",
+    reputation: "Eco - Innovator | Founder & CEO | Vapasee Designs",
+    image: "/images/rajnithampi.jpg",
+    details: "Renjini Thampi, known as the 'Glass Upcycling Woman,' is the founder of Vapasee, a brand transforming discarded glass into sustainable décor. A pioneer in eco-conscious entrepreneurship, she was incubated at IIM Bangalore’s NSRCEL and selected for the Climate Collective Launchpad in 2020. In 2021, she was recognized as a 'UN Women Industry Disruptor.' Recently, she was named one of 20 climate leaders by the Women Climate Collective program, supported by the L'Oréal Foundation."
+   },
 ]
 
 const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {

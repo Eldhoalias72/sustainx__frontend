@@ -79,10 +79,14 @@ const EventBlock = ({ time, events }: EventBlockProps) => {
             ) : (
               <>
                 <h4 className="text-lg font-semibold text-white mb-2">{event.title}</h4>
-                {event.description && <p className="text-green-300 text-sm">{event.description}</p>}
+                {event.description && event.description.split("\n").map((line, index) => (
+                  <p key={index} className="text-green-300 text-sm">{line}</p>
+                ))}
                 {event.speaker && <p className="text-green-400 text-sm mt-2">Speaker: {event.speaker}</p>}
                 {event.location && <p className="text-green-400 text-sm mt-1">Location: {event.location}</p>}
               </>
+
+            
             )}
           </div>
         ))}
@@ -112,7 +116,7 @@ export default function EventSection() {
     {
       time: "10:30 - 11:30",
       events: [
-        { title: "Talk session", speaker: "will update soon", /*location: "Room A" */},
+        { title: "Talk session", speaker: "Licypriya Kanjugam", /*location: "Room A" */},
       ],
     },
     {
@@ -124,7 +128,7 @@ export default function EventSection() {
     {
       time: "12:00 - 1:30",
       events: [
-        { title: "Panel discussion", speaker: "will update soon", /*location: "Auditorium"*/ },
+        { title: "Panel discussion", description: "Topic :Innovation in coastal area construction materials", /*location: "Auditorium"*/ },
       ],
     },
     {
@@ -134,6 +138,24 @@ export default function EventSection() {
       ],
     },
     {
+      time: "3:15 - 4:15",
+      events: [
+        { title: "Talk session", speaker: "V suresh", /*location: "Dining Hall"*/ },
+      ],
+    },
+    {
+      time: "4:15 - 5:15",
+      events: [
+        { title: "Talk session", speaker: "Shuva raha",/* location: "Dining Hall"*/ },
+      ],
+    },
+    {
+      time: "3:00 - 5:00",
+      events: [
+        { title: "Workshop", description: "1. Green Pencil Foundation \n2. Rakesh Khatri - Nest Man of India  \n3. Workshop 3 ", /* location: "Dining Hall"*/ },
+      ],
+    },
+    /*{
       time: "3:00 - 5:00",
       events: [
         {
@@ -148,7 +170,7 @@ export default function EventSection() {
          title3: "Workshop",
         },
       ],
-    },
+    },*/
     {
       time: "5:00 - 6:00",
       events: [

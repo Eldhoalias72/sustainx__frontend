@@ -19,15 +19,27 @@ const ContactSection = () => {
             <div className="space-y-2">
               <p className="flex items-center space-x-2">
                 <Phone size={16} className="text-green-500" />
-                <span>Riya Ummer - +918075528667</span>
+              <span>Riya Ummer (President): 8075528667</span>
               </p>
               <p className="flex items-center space-x-2">
                 <Phone size={16} className="text-green-500" />
-                <span>Adithya Das - +918137868579</span>
+                <span>Adithya Das (Vice President): 8137868579</span>
               </p>
               <p className="flex items-center space-x-2">
                 <Phone size={16} className="text-green-500" />
-                <span>Riya Lekshmi K J - 9495156564</span>
+                <span>Riya Lekshmi K J (Joint Secretary): 9495156564</span>
+              </p>
+              <p className="flex items-center space-x-2">
+                <Phone size={16} className="text-green-500" />
+                <span>Navya Thomas (Team Manager): 9539652565</span>
+              </p>
+              <p className="flex items-center space-x-2">
+                <Phone size={16} className="text-green-500" />
+                <span>Midhun PM (Technical Head): 8078216794</span>
+              </p>
+              <p className="flex items-center space-x-2">
+                <Phone size={16} className="text-green-500" />
+                <span>Gautham (Outread Head): 8075731894</span>
               </p>
             </div>
           </motion.div>
