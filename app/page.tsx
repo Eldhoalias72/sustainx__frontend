@@ -8,6 +8,7 @@ import AboutSection from "../components/about-section"
 import EventSection from "../components/event-section"
 import SpeakersSection from "../components/speakers-section"
 import ContactSection from "../components/contact-section"
+import WorkshopSection from "../components/workshop-section"
 import Image from "next/image"
 import { FaArrowDown } from "react-icons/fa" // Import the arrow icon
 import Popup from "../components/Popup"
@@ -296,6 +297,7 @@ export default function Home() {
           <br/>
           <EventSection />
           <SpeakersSection />
+          <WorkshopSection />
 
           {/* Campus Ambassador Section */}
 
@@ -323,7 +325,7 @@ export default function Home() {
     </motion.p>
 
     <motion.a
-      href="https://sustainx.vercel.app/"
+      href="https://casustainx.igbccusat.com/"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-block bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
