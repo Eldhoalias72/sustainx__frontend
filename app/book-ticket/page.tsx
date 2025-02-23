@@ -12,6 +12,7 @@ interface FormData {
   email: string;
   reEnterEmail: string;
   referralCode: string;
+  preferredSession: string;
   foodPreference: string;
   college: string;
 }
@@ -28,6 +29,7 @@ export default function BookTicket(): JSX.Element {
     reEnterEmail: "",
     referralCode: "",
     foodPreference: "",
+    preferredSession: "",
     college: "",
   });
 
@@ -63,7 +65,7 @@ export default function BookTicket(): JSX.Element {
         className="w-full max-w-4xl bg-[#116530] backdrop-blur-lg rounded-2xl shadow-xl p-10 flex flex-col md:flex-row items-center"
       >
         {/* Right Section (Image & Welcome Message) - Moves to Top on Mobile */}
-        <div className="w-full flex flex-col items-center justify-center text-center py-6 mt-[-80px] md:mt-[-270px]">
+        <div className="w-full flex flex-col items-center justify-center text-center py-6 mt-[-80px] md:mt-[-320px]">
         <Image src="/images/wallehang.png" alt="WALL-E" width={180} height={180} className="object-contain" />
         <p className="text-white text-3xl font-bold mt-4">Welcome, {formData.fullName || "Future Attendee"}!</p>
         </div>
@@ -102,7 +104,19 @@ export default function BookTicket(): JSX.Element {
                 {id === "reEnterEmail" && emailError && <p className="text-red-600 text-sm">{emailError}</p>}
               </div>
             ))}
-
+            <div>
+              <select
+                id="preferredSession"
+                value={formData.preferredSession}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 text-base bg-gray-200 text-black rounded-md border border-gray-500 focus:outline-none focus:ring-2 focus:ring-green-700 transition duration-200"
+              >
+                <option value="">Select Afternoon Session</option>
+                <option value="Talk Session">Talk Session</option>
+                <option value="Workshop">Workshop</option>
+              </select>
+            </div>
             {/* Food Preference Dropdown */}
             <div>
               <select

@@ -39,6 +39,10 @@ const ContactSection = () => {
               </p>
               <p className="flex items-center space-x-2">
                 <Phone size={16} className="text-green-500" />
+                <span>Eldho Alias (Technical Head): 9496369131</span>
+              </p>
+              <p className="flex items-center space-x-2">
+                <Phone size={16} className="text-green-500" />
                 <span>Gautham (Outread Head): 8075731894</span>
               </p>
             </div>

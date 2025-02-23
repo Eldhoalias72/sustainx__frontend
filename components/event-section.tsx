@@ -172,9 +172,9 @@ export default function EventSection() {
       ],
     },*/
     {
-      time: "5:00 - 6:00",
+      time: "5:15 - 6:00",
       events: [
-        { title: "Closing Keynote", /*speaker: "Prof. Maria Garcia", location: "Auditorium" */},
+        { title: "Parallel session", description: "Speaker 1: prerna prasad \n Speaker 2: Renjini Thampi", /*location: "Auditorium" */},
       ],
     },
   ]
