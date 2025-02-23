@@ -31,13 +31,14 @@ export default function Navigation() {
     if (targetId) {
       const targetElement = document.querySelector(targetId); // Find the target element
       if (targetElement) {
-        // Scroll to the target element smoothly
-        targetElement.scrollIntoView({ behavior: "smooth" });
+        setIsOpen(false); // Close the mobile menu immediately before scrolling
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 200); // Add a slight delay to allow layout adjustments
       }
     }
-    // Close the mobile menu after a short delay
-    setTimeout(() => setIsOpen(false), 300); // Adjust the delay as needed
   };
+  
 
   return (
     <motion.nav
