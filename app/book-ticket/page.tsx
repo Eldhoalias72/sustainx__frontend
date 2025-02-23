@@ -129,7 +129,7 @@ export default function BookTicket(): JSX.Element {
                 <option value="">Select Food Preference</option>
                 <option value="Veg">Veg</option>
                 <option value="Non-Veg">Non-Veg</option>
-                <option value="Non-Veg">Iftar</option>
+                <option value="Iftar">Iftar</option>
               </select>
             </div>
 
