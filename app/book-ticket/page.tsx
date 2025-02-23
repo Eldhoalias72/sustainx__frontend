@@ -142,7 +142,7 @@ export default function BookTicket(): JSX.Element {
               </Button>
             </div>
             <br />  
-           Note: Workshop tickets are sold out
+          
           </form>
         </div>
       </motion.div>
