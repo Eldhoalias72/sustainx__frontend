@@ -90,7 +90,7 @@ export default function PaymentPage() {
       >
         <h1 className="text-4xl font-bold text-center mb-8">Complete Payment</h1>
         <div className="flex justify-center mb-6">
-          <Image src="/images/qrrefer.jpg" alt="Payment QR Code" width={200} height={200} className="rounded-lg shadow-lg" />
+          <Image src="/images/midhunqrrrefer.jpg" alt="Payment QR Code" width={200} height={200} className="rounded-lg shadow-lg" />
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
