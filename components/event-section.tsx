@@ -284,42 +284,33 @@ export default function EventSection() {
   <div className="h-8"></div>
 
 
-  <div className="overflow-hidden mt-8 relative">
-    <div className="flex">
-      <motion.div
-        className="flex space-x-4"
-        animate={{ x: [0, "-50%"] }}
-        transition={{
-          repeat: Infinity,
-          duration: 6,
-          ease: "linear",
-        }}
-      >
-        {/* First set of items */}
-        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
-          Earn 50 KTU Points 🎉
-        </div>
-        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
-          Earn 50 KTU Points 🎉
-        </div>
-        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
-          Earn 50 KTU Points 🎉
-        </div>
-
-        {/* Duplicate set to create seamless loop */}
-        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
-          Earn 50 KTU Points 🎉
-        </div>
-        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
-          Earn 50 KTU Points 🎉
-        </div>
-        <div className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap">
-          Earn 50 KTU Points 🎉
-        </div>
-
-      </motion.div>
+  <div className="overflow-hidden mt-8 relative w-full">
+      <div className="flex">
+        <motion.div
+          className="flex"
+          animate={{
+            x: [0, "-16.666%"]  // Only move by the width of one item
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 2,
+            ease: "linear",
+            repeatType: "loop"
+          }}
+        >
+          {/* Six identical boxes in a row */}
+          {[...Array(6)].map((_, index) => (
+            <div 
+              key={index}
+              className="bg-green-500 text-black font-bold text-lg px-6 py-3 rounded-lg shadow-lg whitespace-nowrap mx-4 flex-shrink-0"
+            >
+              Earn 50 KTU Points 🎉
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </div>
-  </div>
+  
 
 
 

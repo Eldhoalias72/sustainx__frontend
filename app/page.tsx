@@ -8,6 +8,7 @@ import AboutSection from "../components/about-section"
 import EventSection from "../components/event-section"
 import SpeakersSection from "../components/speakers-section"
 import ContactSection from "../components/contact-section"
+import CountdownSection from "../components/countdown-section"
 import WorkshopSection from "../components/workshop-section"
 import Image from "next/image"
 import { FaArrowDown } from "react-icons/fa" // Import the arrow icon
@@ -290,6 +291,7 @@ export default function Home() {
             </motion.div>
           </section>
 
+          <CountdownSection />
           {/* About Section */}
           <div ref={aboutSectionRef}>
             <AboutSection />
