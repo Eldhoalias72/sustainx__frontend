@@ -86,7 +86,7 @@ const CountdownSection = () => {
           </div>
           
           <p className="text-center text-green-300 mt-4 text-sm">
-            Join us for the future of sustainability on March 15, 2025
+            Join us for the future of sustainability on <strong>March 15, 2025</strong>
           </p>
         </div>
       </motion.div>
