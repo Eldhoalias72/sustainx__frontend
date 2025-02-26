@@ -12,7 +12,7 @@ interface FormData {
   email: string;
   reEnterEmail: string;
   referralCode: string;
-  //preferredSession: string;
+  preferredSession: string;
   foodPreference: string;
   college: string;
 }
@@ -27,6 +27,7 @@ export default function BookTicket(): JSX.Element {
     contactNumber: "",
     email: "",
     reEnterEmail: "",
+    preferredSession: "",
     referralCode: "",
     foodPreference: "",
     college: "",
@@ -103,7 +104,7 @@ export default function BookTicket(): JSX.Element {
                 {id === "reEnterEmail" && emailError && <p className="text-red-600 text-sm">{emailError}</p>}
               </div>
             ))}
-           {/* <div>
+            <div>
               <select
                 id="preferredSession"
                 value={formData.preferredSession}
@@ -115,7 +116,7 @@ export default function BookTicket(): JSX.Element {
                 <option value="Talk Session">Talk Session</option>
                 <option value="Workshop">Workshop</option>
               </select>
-            </div>*/}
+            </div>
             {/* Food Preference Dropdown */}
             <div>
               <select
@@ -141,7 +142,7 @@ export default function BookTicket(): JSX.Element {
               </Button>
             </div>
             <br />  
-                Note: Workshop Tickets are filled
+                
           </form>
         </div>
       </motion.div>
