@@ -12,7 +12,7 @@ interface FormData {
   email: string;
   reEnterEmail: string;
   referralCode: string;
-  preferredSession: string;
+  //preferredSession: string;
   foodPreference: string;
   college: string;
 }
@@ -27,7 +27,6 @@ export default function BookTicket(): JSX.Element {
     contactNumber: "",
     email: "",
     reEnterEmail: "",
-    preferredSession: "",
     referralCode: "",
     foodPreference: "",
     college: "",
@@ -65,7 +64,7 @@ export default function BookTicket(): JSX.Element {
         className="w-full max-w-4xl bg-[#116530] backdrop-blur-lg rounded-2xl shadow-xl p-10 flex flex-col md:flex-row items-center"
       >
         {/* Right Section (Image & Welcome Message) - Moves to Top on Mobile */}
-        <div className="w-full flex flex-col items-center justify-center text-center py-6 mt-[-80px] md:mt-[-300px]">
+        <div className="w-full flex flex-col items-center justify-center text-center py-6 mt-[-80px] md:mt-[-280px]">
         <Image src="/images/wallehang.png" alt="WALL-E" width={180} height={180} className="object-contain" />
         <p className="text-white text-3xl font-bold mt-4">Welcome, {formData.fullName || "Future Attendee"}!</p>
         </div>
@@ -104,7 +103,7 @@ export default function BookTicket(): JSX.Element {
                 {id === "reEnterEmail" && emailError && <p className="text-red-600 text-sm">{emailError}</p>}
               </div>
             ))}
-            <div>
+           {/*} <div>
               <select
                 id="preferredSession"
                 value={formData.preferredSession}
@@ -117,6 +116,7 @@ export default function BookTicket(): JSX.Element {
                 <option value="Workshop">Workshop</option>
               </select>
             </div>
+            */}
             {/* Food Preference Dropdown */}
             <div>
               <select
