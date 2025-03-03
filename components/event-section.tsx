@@ -310,7 +310,11 @@ export default function EventSection() {
         </motion.div>
       </div>
     </div>
-  
+    <br></br>
+    <p className="text-green-300 text-sm mb-6">
+    Note: Refunds will not be issued.
+  </p>
+   
 
 
 
