@@ -142,7 +142,7 @@ export default function BookTicket(): JSX.Element {
               </Button>
             </div>
             <br />  
-                Note: Refunds will not be issued.
+                Note: Workshop tickets are sold out.
           </form>
         </div>
       </motion.div>
