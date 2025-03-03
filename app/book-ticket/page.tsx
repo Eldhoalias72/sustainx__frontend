@@ -142,7 +142,7 @@ export default function BookTicket(): JSX.Element {
               </Button>
             </div>
             <br />  
-                
+                Note: Refunds will not be issued.
           </form>
         </div>
       </motion.div>
