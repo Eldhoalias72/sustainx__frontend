@@ -102,7 +102,7 @@ export default function Navigation() {
                 {item}
               </motion.a>
             ))}
-            <Link href="/sold-out">
+            <Link href="/book-ticket">
               <Button className="bg-green-500 text-green-900 hover:bg-green-400">Book Ticket</Button>
             </Link>
           </div>
@@ -143,7 +143,7 @@ export default function Navigation() {
                       {item}
                     </motion.a>
                   ))}
-                  <Link href="/sold-out">
+                  <Link href="/book-ticket">
                     <Button className="w-full bg-green-500 text-green-900 hover:bg-green-400" onClick={() => setIsOpen(false)}>
                       Book Ticket
                     </Button>
