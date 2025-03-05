@@ -26,7 +26,7 @@ export default function Popup() {
       <p className="mt-2 text-sm">
         Secure your spot at our upcoming event before tickets run out!
       </p>
-      <Link href="/book-ticket">
+      <Link href="/sold-out">
         <button className="mt-3 bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
           Get Tickets
         </button>

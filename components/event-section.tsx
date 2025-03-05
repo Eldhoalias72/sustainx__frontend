@@ -272,7 +272,7 @@ export default function EventSection() {
   </p>
   <div className="flex justify-center">
     <motion.a
-      href="/book-ticket"
+      href="/sold-out"
       className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-300"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
