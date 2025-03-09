@@ -26,10 +26,10 @@ const speakers: Speaker[] = [
     details: "Green Pencil Foundation is a youth-led nonprofit organization dedicated to environmental conservation, sustainability, and social awareness. Through innovative campaigns, workshops, and community-driven initiatives, the foundation empowers young minds to take action against climate change, pollution, and deforestation. It promotes eco-friendly practices, sustainable living, and environmental education across schools and communities. With a strong commitment to the UN’s Sustainable Development Goals, Green Pencil Foundation fosters a culture of responsibility and change, inspiring individuals to contribute towards a greener and healthier planet.",
   },
   {
-    name: "Will update soon",
-    reputation: "",
-    image: "/images/coming.png",
-    details:"" 
+    name: "Ar. Vinay Manchala",
+    reputation: "Founder and Director at VISVA Sustainable Foundation",
+    image: "/images/vinay.jpg",
+    details:"Carbon Footprint and The Lifestyle Analysis – A Sustain X Forward for the Conscious Future is a transformative 3-hour workshop designed to deepen awareness of personal and collective environmental impact. Led by Ar. Vinay Manchala, this interactive session explores carbon footprints, lifestyle optimization, and sustainable alternatives. Participants will engage in mindful activities like earthing, deep breathing, and hands-on sustainability practices to foster a conscious, eco-friendly future." 
  },
 ]
 
