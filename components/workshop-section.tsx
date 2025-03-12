@@ -13,17 +13,17 @@ interface Speaker {
 
 const speakers: Speaker[] = [
   {
-    name: "Rakesh Khatri",
-    reputation: "Nest Man of India",
-    image: "/images/rakesh.jpg",
+    name: "Shiad Majeed",
+    reputation: "Co-Earth Foundation",
+    image: "/images/shiad.jpg",
     details:
-      "Rakesh Khatri, known as the 'Nest Man of India,' is an environmentalist and documentary filmmaker dedicated to ecosystem conservation. He pioneered eco-friendly nests using bamboo, jute, and cotton, successfully aiding the declining sparrow population. His initiative, Eco Roots Foundation, has led over 7.3 lakh nest installations and 7000+ workshops, directly engaging over 14 lakh people. Recognized by Limca Book of Records, his efforts have impacted 2 lakh students and 112,000 children across India. His work promotes climate action, water conservation, and sustainability awareness.",
+      "Co-Earth Foundation promotes sustainable construction techniques using natural and locally available materials. Their workshops focus on eco-friendly building methods, integrating traditional wisdom with modern sustainability practices. Shiad Majeed, an expert in earthen construction, leads participants through hands-on experiences to explore environmentally responsible building alternatives.",
   },
   {
     name: "Sandeep Sharma",
     reputation: "Green Pencil Foundation",
     image: "/images/sandeep.jpg",
-    details: "Green Pencil Foundation is a youth-led nonprofit organization dedicated to environmental conservation, sustainability, and social awareness. Through innovative campaigns, workshops, and community-driven initiatives, the foundation empowers young minds to take action against climate change, pollution, and deforestation. It promotes eco-friendly practices, sustainable living, and environmental education across schools and communities. With a strong commitment to the UN’s Sustainable Development Goals, Green Pencil Foundation fosters a culture of responsibility and change, inspiring individuals to contribute towards a greener and healthier planet.",
+    details: "Green Pencil Foundation is a youth-led nonprofit organization dedicated to environmental conservation, sustainability, and social awareness. Through innovative campaigns, workshops, and community-driven initiatives, the foundation empowers young minds to take action against climate change, pollution, and deforestation. It promotes eco-friendly practices, sustainable living, and environmental education across schools and communities.",
   },
   {
     name: "Ar. Vinay Manchala",

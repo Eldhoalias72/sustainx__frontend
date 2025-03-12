@@ -128,7 +128,7 @@ export default function EventSection() {
     {
       time: "12:00 - 1:30",
       events: [
-        { title: "Panel discussion", description: "Topic :Innovation in coastal area construction materials", /*location: "Auditorium"*/ },
+        { title: "Panel discussion", description: "Topic :Voices from the Ground: Science and Technology in People-Centered Climate Design Solutions", /*location: "Auditorium"*/ },
       ],
     },
     {
@@ -138,13 +138,13 @@ export default function EventSection() {
       ],
     },
     {
-      time: "3:15 - 4:15",
+      time: "3:30 - 4:30",
       events: [
         { title: "Talk session", speaker: "V suresh", /*location: "Dining Hall"*/ },
       ],
     },
     {
-      time: "4:15 - 5:15",
+      time: "4:30 - 5:30",
       events: [
         { title: "Talk session", speaker: "Shuva raha",/* location: "Dining Hall"*/ },
       ],
@@ -152,7 +152,7 @@ export default function EventSection() {
     {
       time: "3:00 - 5:00",
       events: [
-        { title: "Workshop", description: "1. Green Pencil Foundation \n2. Rakesh Khatri - Nest Man of India  \n3. Workshop 3 ", /* location: "Dining Hall"*/ },
+        { title: "Workshop", description: "1. Green Pencil Foundation \n2. Co-Earth Foundation   \n3. VISVA Sustainable Foundation  ", /* location: "Dining Hall"*/ },
       ],
     },
     /*{
@@ -172,7 +172,7 @@ export default function EventSection() {
       ],
     },*/
     {
-      time: "5:15 - 6:00",
+      time: "5:30 - 6:30",
       events: [
         { title: "Parallel session", description: "Speaker 1: prerna prasad \n Speaker 2: Renjini Thampi", /*location: "Auditorium" */},
       ],
